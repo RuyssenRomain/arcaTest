@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS aracadizoo_db;
 USE aracadizoo_db;
 
 -- Créer l'utilisateur 'arcadia' avec un mot de passe
-CREATE USER 'arcadia'@'%' IDENTIFIED BY 'arcadia_password';
+CREATE USER 'arcadiaUser'@'%' IDENTIFIED BY 'Arcadia@180927';
 
 -- Accorder tous les privilèges à 'arcadia'
 GRANT ALL PRIVILEGES ON *.* TO 'arcadia'@'%' WITH GRANT OPTION;

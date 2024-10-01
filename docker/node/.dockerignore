@@ -1,0 +1,23 @@
+# Ignorer le dossier des dépendances Node.js (sera reconstruit dans le conteneur)
+node_modules/
+
+# Ignorer les fichiers de contrôle de version
+.git/
+.gitignore
+
+# Ignorer les fichiers temporaires ou inutiles
+*.log
+logs/
+tmp/
+dist/
+build/
+
+# Ignorer les fichiers de configuration locaux
+.vscode/
+.idea/
+
+# Ignorer les fichiers d'environnement
+.env*
+
+# Ignorer le fichier lui-même
+.dockerignore

@@ -1,0 +1,31 @@
+
+# Ignorer le dossier node_modules
+node_modules/
+frontend/node_modules/
+frontend/dist/
+npm-debug.log
+yarn-error.log
+
+#composer
+backend/vendor/
+
+logs/
+*.log
+
+# Dependency directories
+backend/vendor/
+composer.lock
+
+# dotenv environment variables file
+.env*
+
+# Docker files
+docker/mysql/data/
+docker/mongo/data/
+
+# IDE files
+.vscode/
+.idea/
+
+# MacOS files
+.DS_Store

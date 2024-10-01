@@ -1,0 +1,85 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0-alpine
+    env_file:
+      - .env.prod
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./docker/entrypoint/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
+    networks:
+      - backend
+    container_name: my-mysql-container-prod # Nom du conteneur pour l'environnement de production
+
+  mongo:
+    image: mongo:6.0.5-focal
+    env_file:
+      - .env.prod
+    volumes:
+      - mongo_data:/data/db
+      - ./docker/entrypoint/init.js:/docker-entrypoint-initdb.d/init.js
+    networks:
+      - backend
+    container_name: my-mongo-container-prod # Nom du conteneur MongoDB pour la production
+
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - ./app:/var/www/html
+    ports:
+      - "8080:80"
+    env_file:
+      - .env.prod
+    networks:
+      - backend
+    container_name: my-php-container-prod # Nom du conteneur PHP pour la production
+
+  node:
+    build:
+      context: .
+      dockerfile: docker/node/Dockerfile.node
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "3000:3000"
+    networks:
+      - frontend
+    container_name: my-node-container-prod # Nom du conteneur Node.js pour la production
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.2.1-fpm-alpine
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+    networks:
+      - backend
+    container_name: my-phpmyadmin-container-prod # Nom du conteneur PhpMyAdmin en production
+
+  nginx:
+    image: nginx:1.25.2-alpine
+    ports:
+      - "8082:80"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./app:/var/www/html:ro
+    depends_on:
+      - php
+    networks:
+      - frontend
+    container_name: my-nginx-container-prod # Nom du conteneur Nginx pour la production
+
+networks:
+  backend:
+  frontend:
+
+volumes:
+  db_data:
+  mongo_data:

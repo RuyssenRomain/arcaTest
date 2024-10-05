@@ -1,1 +1,3 @@
+# applique à tous les fichiers du dépôt et 
+# indique à Git de détecter automatiquement les fichiers texte et de gérer les fins de ligne en conséquence.
 * text=auto

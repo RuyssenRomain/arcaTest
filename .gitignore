@@ -17,7 +17,8 @@ backend/vendor/
 composer.lock
 
 # dotenv environment variables file
-.env*
+.env.prod
+.env
 
 # Docker files
 docker/mysql/data/

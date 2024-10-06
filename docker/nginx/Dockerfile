@@ -1,9 +1,14 @@
-FROM nginx:1.21-alpine
+# Declare the argument for the Nginx version
+ARG NGINX_VERSION
 
-# Copier la configuration Nginx
+# Use the argument to choose the Nginx image
+FROM nginx:${NGINX_VERSION}
+
+# Copy the Nginx configuration
 COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 
-# Exposer le port Nginx
+
+# Expose port 80
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]

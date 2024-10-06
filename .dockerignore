@@ -15,8 +15,8 @@ tmp/
 .env
 
 # Ignorer les données persistantes
-mysql_data/
-mongo_data/
+# mysql_data/
+# mongo_data/
 
 # Ignorer le fichier lui-même
 .dockerignore

@@ -1,0 +1,20 @@
+{
+    "name": "docker/arcadia",
+    "description": "application de gestion de zoo , approche des concepts docker",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Docker\\Arcadia\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ruyssen Romain",
+            "email": "ruyssensud@gmail.com"
+        }
+    ],
+    "require": {
+        "altorouter/altorouter": "^2.0"
+    }
+}

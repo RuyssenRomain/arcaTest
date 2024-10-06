@@ -11,13 +11,13 @@ RUN echo "Building with Node.js version: $NODE_VERSION"
 WORKDIR /app
 
 # Copier le package.json et le package-lock.json
-COPY ./frontend/package*.json ./
+COPY package.json package-lock.json ./
 
 # Installer les dépendances
 RUN npm install
 
 # Copier le reste du code source
-COPY frontend/ .
+COPY . .
 
 # Exposer le port Node.js
 EXPOSE ${NODE_PORT}

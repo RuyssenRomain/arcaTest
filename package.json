@@ -1,0 +1,28 @@
+{
+  "name": "dockerzoo",
+  "version": "1.0.0",
+  "description": "Application de gestion du Zoo Arcadia avec intégration de Tailwind CSS.",
+  "scripts": {
+    "build": "postcss public/css/tailwind.css -o public/css/main.css",
+    "watch": "postcss public/css/tailwind.css -o public/css/main.css --watch",
+    "start": "npm run build && npm run watch",
+    "dev": "npm run watch"
+  },
+  "keywords": [
+    "zoo",
+    "docker",
+    "tailwindcss",
+    "php"
+  ],
+  "author": "Ruyssen Romain <ruyssensud@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.13"
+  },
+  "dependencies": {
+    "cli": "^1.0.1"
+  }
+}

@@ -6,6 +6,8 @@
 *.log
 logs/
 tmp/
+cache/
+*.tmp
 
 # Ignorer les fichiers de configuration locaux
 .vscode/
@@ -13,10 +15,27 @@ tmp/
 
 # Ignorer les fichiers d'environnement
 .env
+# .env.*
+.env.dev
+.env.prod
 
-# Ignorer les données persistantes
-# mysql_data/
-# mongo_data/
+# Ignorer les dépendances de Node.js et PHP
+node_modules/
+vendor/
 
-# Ignorer le fichier lui-même
+# Ignorer les données persistantes Docker (non nécessaire dans le contexte du build)
+mysql_data/
+mongo_data/
+
+# Ignorer les fichiers de build et de distribution
+/dist/
+/build/
+/public/css/main.css
+/public/js/*.js
+
+# Ignorer les fichiers spécifiques à Docker
+Dockerfile
+docker-compose.yml
+
+# Ignorer le fichier lui-même pour éviter de l'inclure dans l'image
 .dockerignore

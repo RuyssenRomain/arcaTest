@@ -5,10 +5,11 @@ ARG NGINX_VERSION
 FROM nginx:${NGINX_VERSION}
 
 # Copy the Nginx configuration
-COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY docker/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
 
 
-# Expose port 80
+# Exposer le port 80 (HTTP) et 443 (HTTPS si utilisé)
 EXPOSE 80
+# EXPOSE 443
 
 CMD ["nginx", "-g", "daemon off;"]

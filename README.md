@@ -83,17 +83,13 @@ Cette commande va :
 
 Une fois les conteneurs démarrés, vous pouvez accéder aux services suivants :
 
-- **Frontend (Vite.js)** : [http://localhost:5173](http://localhost:5173)
-- **Backend (PHP/Nginx)** : [http://localhost:8080](http://localhost:8080)
+- **Frontend (Vite.js)** : [http://localhost:5173](http://localhost:5178)
+- **Backend (PHP/Nginx)** : [http://localhost:8080](http://localhost:8082)
 - **phpMyAdmin (MySQL)** : [http://localhost:8081](http://localhost:8081)
 
 ---
 
 ## 7. FAQ <a name="faq"></a>
-
-### Pourquoi est-ce que je ne vois pas certains dossiers vides dans mon dépôt Git ?
-
-Git ignore par défaut les dossiers vides. Pour inclure ces dossiers dans vos commits, ajoutez un fichier `.gitkeep` dans chaque dossier que vous souhaitez suivre.
 
 ### Comment puis-je ajouter de nouvelles dépendances au projet ?
 

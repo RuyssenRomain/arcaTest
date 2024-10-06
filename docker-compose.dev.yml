@@ -5,8 +5,11 @@ services:
       dockerfile: ./docker/mysql/Dockerfile
       args:
         MYSQL_VERSION: ${MYSQL_VERSION}
-    env_file:
-      - .env.dev
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
@@ -21,8 +24,6 @@ services:
       dockerfile: ./docker/mongo/Dockerfile
       args:
         MONGO_VERSION: ${MONGO_VERSION}
-    env_file:
-      - .env.dev
     volumes:
       - mongo_data:/data/db
     ports:
@@ -61,8 +62,6 @@ services:
     networks:
       - backend
     container_name: my-php-container
-    env_file:
-      - .env.dev
 
   node:
     build:
@@ -82,10 +81,10 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    env_file:
-      - .env.dev
     environment:
-      PMA_HOST:  mysql
+      PMA_HOST: mysql
+      # PMA_USER: root
+      # PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
       - "8081:80"
     depends_on:

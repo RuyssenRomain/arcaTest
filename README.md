@@ -83,8 +83,8 @@ Cette commande va :
 
 Une fois les conteneurs démarrés, vous pouvez accéder aux services suivants :
 
-- **Frontend (Vite.js)** : [http://localhost:5173](http://localhost:5178)
-- **Backend (PHP/Nginx)** : [http://localhost:8080](http://localhost:8082)
+- **Frontend (Vite.js)** : [http://localhost:5178](http://localhost:5178)
+- **Backend (PHP/Nginx)** : [http://localhost:8082](http://localhost:8082)
 - **phpMyAdmin (MySQL)** : [http://localhost:8081](http://localhost:8081)
 
 ---

@@ -8,7 +8,9 @@ FROM php:${PHP_VERSION}
 RUN echo "Building with PHP version: ${PHP_VERSION}"
 
 # Installer les extensions PHP nécessaires
-RUN docker-php-ext-install pdo pdo_mysql
+RUN apk --no-cache add bash \
+    && docker-php-ext-install pdo pdo_mysql
+# RUN docker-php-ext-install pdo pdo_mysql
 
 # Installer Composer depuis l'image composer:2.1
 COPY --from=composer:2.1 /usr/bin/composer /usr/bin/composer

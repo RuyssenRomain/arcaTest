@@ -19,8 +19,8 @@ RUN npm install
 # Copier le reste du code source
 COPY . .
 
-# Exposer le port Node.js
-EXPOSE ${NODE_PORT}
+# Exposer le port Node.js => EXPOSE ${NODE_PORT} cela à l'origine test pour faire marcher Vite avec Vite en port exposer
+EXPOSE ${VITE_PORT}
 
 # Démarrer l'application
 CMD ["npm", "run", "dev"]

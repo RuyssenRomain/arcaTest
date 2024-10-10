@@ -61,7 +61,8 @@ services:
         PHP_PORT: ${PHP_PORT:-9000}  # Valeur par défaut pour le port PHP_FPM
     volumes:
       - ./src:/var/www/html/src
-      - ./public:/var/www/html/public
+      - ./public:/var/www/html/public 
+       - ./.env:/var/www/html/.env #penser à enlever les volumes pour la production
     networks:
       - backend
     container_name: my-php-container
@@ -114,3 +115,9 @@ volumes:
     name : arcadia_mongo_data
   node_modules:
     name: arcadia_node_modules
+  php_data:
+    name: arcadia_php_data      # Volume pour les fichiers PHP (si nécessaire)
+  nginx_conf:
+    name: arcadia_nginx_conf    # Volume pour les configurations Nginx (si nécessaire)
+  env_files:
+    name: arcadia_env_files     # Volume pour les fichiers .env

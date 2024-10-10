@@ -14,7 +14,7 @@ cache/
 .idea/
 
 # Ignorer les fichiers d'environnement
-.env
+# .env
 # .env.*
 .env.dev
 .env.prod
@@ -24,8 +24,8 @@ node_modules/
 vendor/
 
 # Ignorer les données persistantes Docker (non nécessaire dans le contexte du build)
-mysql_data/
-mongo_data/
+# mysql_data/
+# mongo_data/
 
 # Ignorer les fichiers de build et de distribution
 /dist/

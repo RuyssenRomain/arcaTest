@@ -1,3 +1,15 @@
+<?php
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ ); 
+$dotenv->load();
+echo getenv('APP_ENV');
+
+var_dump($_ENV['APP_ENV']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Tailwind CSS avec Vite et PHP</title>
 
-    <?php if ($_ENV['APP_ENV'] === 'development'): ?>
+    <?php if ($_ENV['APP_ENV'] === 'developement'): ?>
         <!-- En mode développement, on charge les fichiers directement depuis Vite -->
         <script type="module" src="http://localhost:5173/@vite/client"></script>
         <script type="module" src="http://localhost:5173/main.js"></script>
@@ -23,5 +35,4 @@
         <h1>Hello, Tailwind CSS avec Vite et PHP !</h1>
         <p>Ceci est injecté dynamiquement par PHP</p>
     </div>
-</body>
 </html>

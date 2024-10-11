@@ -33,7 +33,6 @@ RUN composer install --no-dev --optimize-autoloader
 # Copier le reste du code source avec les bonnes permissions
 COPY --chown=www-data:www-data src/ /var/www/html/src/
 COPY --chown=www-data:www-data public/ /var/www/html/public/
-COPY --chown=www-data:www-data .env/ /var/www/html/.env
 
 # Exposer le port PHP-FPM (optionnel, car Nginx communique via le réseau Docker)
 EXPOSE ${PHP_PORT}

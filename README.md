@@ -1,109 +1,99 @@
+# Arcadia Zoo Application
 
-# DockerZoo - Projet Fullstack avec Docker
+## Introduction
 
-## Sommaire
-1. [Description du projet](#description-du-projet)
-2. [Technologies](#technologies)
-3. [Prérequis](#prérequis)
-4. [Installation](#installation)
-   - [Clonage du projet](#clonage-du-projet)
-   - [Configuration de l'environnement](#configuration-de-lenvironnement)
-5. [Lancement des conteneurs](#lancement-des-conteneurs)
-6. [Accès aux services](#accès-aux-services)
-7. [FAQ](#faq)
-8. [Contribuer](#contribuer)
+Arcadia est une application MVC destinée à optimiser l'expérience utilisateur et faciliter l'accès aux différentes fonctionnalités dédiées au fonctionnement du zoo. Elle propose un tableau de bord individualisé pour les différents acteurs du zoo.
 
----
+## Technologies Utilisées
 
-## 1. Description du projet <a name="description-du-projet"></a>
+- **Backend :** PHP 8.0-fpm-alpine
+- **Frontend :** Node.js 20-alpine3.19 avec Vite et Tailwind CSS
+- **Base de Données :** MySQL 5.7 et MongoDB 7.0
+- **Serveur Web :** Nginx 1.21-alpine
+- **Containerisation :** Docker & Docker Compose
 
-DockerZoo est un projet d'application web fullstack avec séparation des composants backend et frontend. Le backend est développé en PHP avec une architecture MVC, tandis que le frontend utilise Vite.js pour des performances accrues. Tout est géré via Docker pour simplifier le développement et le déploiement.
+## Prérequis
 
----
+- **Docker** (version >= 20.10)
+- **Docker Compose** (version >= 1.29)
 
-## 2. Technologies <a name="technologies"></a>
+## Installation
 
-- **Backend** : PHP 8 (architecture MVC)
-- **Frontend** : Vite.js
-- **Base de données** : MySQL 5.7 et MongoDB
-- **Serveur web** : Nginx
-- **Conteneurs** : Docker & Docker Compose
+1. **Cloner le Répertoire :**
 
----
+    ```bash
+    git clone <repository-url>
+    cd arcadia
+    ```
 
-## 3. Prérequis <a name="prérequis"></a>
+2. **Configurer les Variables d'Environnement :**
 
-Avant de démarrer, assurez-vous d'avoir les éléments suivants installés sur votre machine :
+    Copier le fichier `.env.example` en `.env` et ajuster les variables si nécessaire.
 
-- **Docker** : [Installation Docker](https://docs.docker.com/get-docker/)
-- **Docker Compose** : [Installation Docker Compose](https://docs.docker.com/compose/install/)
-- **Git** : [Installation Git](https://git-scm.com/)
+    ```bash
+    cp .env.example .env
+    ```
 
----
+    Assurez-vous que `APP_ENV` est défini à `development` pour le développement.
 
-## 4. Installation <a name="installation"></a>
+3. **Démarrer les Conteneurs Docker :**
 
-### Clonage du projet <a name="clonage-du-projet"></a>
+    ```bash
+    docker-compose up --build
+    ```
 
-Commencez par cloner le projet depuis GitHub :
+4. **Accéder à l'Application :**
 
-```bash
-git clone https://github.com/votre-utilisateur/dockerzoo.git
-cd dockerzoo
-```
+    Ouvrez votre navigateur et naviguez vers [http://localhost:8080](http://localhost:8080).
 
-### Configuration de l'environnement <a name="configuration-de-lenvironnement"></a>
+5. **Accéder à phpMyAdmin :**
 
-Un fichier `.env` est fourni pour centraliser la configuration des variables d'environnement. Il suffit de le copier depuis l'exemple :
+    Naviguez vers [http://localhost:8081](http://localhost:8081) pour gérer la base de données MySQL.
 
-```bash
-cp .env.example .env
-```
+## Développement
 
-Ensuite, ajustez les variables d'environnement dans le fichier `.env` pour correspondre à vos besoins (comme les mots de passe, les ports, etc.).
+### Scripts npm
 
----
+- **Démarrage en Développement :**
 
-## 5. Lancement des conteneurs <a name="lancement-des-conteneurs"></a>
+    ```bash
+    npm run dev
+    ```
 
-Après avoir configuré votre environnement, exécutez la commande suivante pour lancer les conteneurs Docker :
+    Cela démarre le serveur Vite avec HMR sur le port défini dans `.env` (par défaut 5172).
 
-```bash
-docker-compose -f docker-compose.dev.yml up -d --build
-```
+- **Compilation pour la Production :**
 
-Cette commande va :
-- Télécharger les images nécessaires (PHP, MySQL, MongoDB, Nginx, etc.)
-- Construire les conteneurs pour chaque service
-- Démarrer tous les services en mode détaché (`-d`)
+    ```bash
+    npm run build
+    ```
 
----
+    Cela compile les assets pour la production dans le dossier `public/dist`.
 
-## 6. Accès aux services <a name="accès-aux-services"></a>
+## Dépannage
 
-Une fois les conteneurs démarrés, vous pouvez accéder aux services suivants :
+- **Classes Tailwind CSS Manquantes :**
+    - Assurez-vous que `tailwind.config.js` inclut tous les chemins des fichiers contenant des classes Tailwind.
+    - Vérifiez que les fichiers CSS sont correctement importés dans `main.js`.
 
-- **Frontend (Vite.js)** : [http://localhost:5178](http://localhost:5178)
-- **Backend (PHP/Nginx)** : [http://localhost:8082](http://localhost:8082)
-- **phpMyAdmin (MySQL)** : [http://localhost:8081](http://localhost:8081)
+- **HMR Ne Fonctionne Pas :**
+    - Vérifiez que les scripts dans `index.php` pointent vers le bon port (`5172`).
+    - Assurez-vous que le port est correctement mappé dans `docker-compose.yml`.
+    - Vérifiez les logs du conteneur Node et la console du navigateur pour identifier les erreurs.
 
----
+- **Erreur 502 Bad Gateway :**
+    - Vérifiez la configuration de Nginx pour s'assurer qu'elle pointe vers les bons conteneurs et ports.
+    - Vérifiez les logs de Nginx et des conteneurs PHP et Node pour identifier les causes de l'erreur.
+    - Assurez-vous que les conteneurs PHP et Node sont en cours d'exécution et accessibles.
 
-## 7. FAQ <a name="faq"></a>
+- **Problèmes de Compilation CSS :**
+    - Accédez au conteneur Node et vérifiez les fichiers CSS compilés.
+    - Consultez les logs du conteneur Node pour détecter des erreurs.
 
-### Comment puis-je ajouter de nouvelles dépendances au projet ?
+## Contribution
 
-- **Pour le backend (PHP)** : Modifiez le fichier `composer.json` dans le dossier `backend`, puis exécutez `composer install` dans le conteneur PHP.
-- **Pour le frontend (Vite.js)** : Modifiez le fichier `package.json` dans le dossier `frontend`, puis exécutez `npm install` dans le conteneur Node.js.
+Les contributions sont les bienvenues ! Veuillez suivre les règles de codage et soumettre des pull requests avec des descriptions claires.
 
----
+## Licence
 
-## 8. Contribuer <a name="contribuer"></a>
-
-Les contributions sont les bienvenues ! Pour contribuer :
-
-1. **Fork** ce dépôt.
-2. Créez une nouvelle branche : `git checkout -b feature/ma-feature`.
-3. Faites vos modifications, puis **commit** : `git commit -m "Ajout de ma fonctionnalité"`.
-4. **Push** sur votre dépôt : `git push origin feature/ma-feature`.
-5. Créez une **Pull Request** vers la branche `main` de ce dépôt.
+[MIT](LICENSE)

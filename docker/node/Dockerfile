@@ -1,27 +1,22 @@
-# Déclarer l'argument pour la version de Node.js
-ARG NODE_VERSION
+FROM node:20-alpine3.19
 
-# Utiliser l'argument pour choisir l'image Node.js
-FROM node:${NODE_VERSION}
+# Déclarer l'argument pour la version de Node.js (déjà géré via build args)
 
-
-# Afficher la version de Node.js utilisée lors du build (pour déboguer)
-RUN echo "Building with Node.js version: $NODE_VERSION"
 # Définir le répertoire de travail
 WORKDIR /app
 
-# Copier le package.json et le package-lock.json
-COPY package.json package-lock.json ./
+# Copier les fichiers package.json et package-lock.json
+COPY ./package.json ./package-lock.json ./
 
 # Installer les dépendances
 RUN npm install
 
-# Copier le reste du code source
-COPY . .
+# Copier le reste des fichiers de l'application
+COPY ./public ./public
+COPY ./src ./src
 
-# Exposer le port Node.js => EXPOSE ${NODE_PORT} cela à l'origine test pour faire marcher Vite avec Vite en port exposer
-EXPOSE ${NODE_PORT}
+# Exposer le port Vite
+EXPOSE 5173
 
-# Démarrer l'application
-CMD ["npm", "run", "dev"]
-
+# Commande par défaut
+CMD ["npm", "run", "dev", "--", "--host"]

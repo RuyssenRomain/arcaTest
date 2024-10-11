@@ -1,15 +1,13 @@
-# Declare the argument for the Nginx version
-ARG NGINX_VERSION
+FROM nginx:1.21-alpine
 
-# Use the argument to choose the Nginx image
-FROM nginx:${NGINX_VERSION}
+# Copier le template de configuration pour injecter dynamiquement des configurations basées sur les variables d'environnement.
+COPY ./docker/nginx/default.conf.template /etc/nginx/templates/default.conf.template
 
-# Copy the Nginx configuration
-COPY docker/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
+# Copier le script d'entrée = Permet de modifier la configuration de Nginx en fonction de l'environnement (developpement ou production).
+COPY ./docker/nginx/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 
-# Exposer le port 80 (HTTP) et 443 (HTTPS si utilisé)
-EXPOSE 80
-# EXPOSE 443
-
+# Définir le script d'entrée
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]

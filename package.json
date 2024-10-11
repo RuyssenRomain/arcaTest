@@ -4,8 +4,9 @@
   "description": "application mvc pour un zoo. Dédier à optimiser expériences utilisateur et facilité un accés aux différentes fonctionnalité dédier au fonctionnement du zoo   dans un  dashboard individualisé  pour les différents acteur du zoo. ",
   "main": "main.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build"
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "tailwind:build": "tailwindcss -i ./public/css/tailwind.css -o ./public/dist/main.css --watch"
   },
   "keywords": [
     "zoo",

@@ -1,10 +1,35 @@
 # Arcadia Zoo Application
 
-## Introduction
+Bienvenue dans le projet **Arcadia Zoo Application**, une application web moderne utilisant **PHP**, **Node.js** (Vite), **Tailwind CSS**, **MySQL**, **MongoDB**, et **Nginx**. Cette application est containerisée avec **Docker** et **Docker Compose**, offrant une configuration sécurisée, centralisée et évolutive.
+
+## Table des Matières
+
+1. [Introduction](#introduction)
+2. [Technologies Utilisées](#technologies-utilisées)
+3. [Prérequis](#prérequis)
+4. [Installation](#installation)
+    - [Cloner le Répertoire](#cloner-le-répertoire)
+    - [Configurer le Fichier `.env`](#configurer-le-fichier-env)
+    - [Initialiser Docker Swarm (Pour les Secrets)](#initialiser-docker-swarm-pour-les-secrets)
+5. [Utilisation](#utilisation)
+    - [Construire et Démarrer les Conteneurs](#construire-et-démarrer-les-conteneurs)
+    - [Accéder à l'Application](#accéder-à-lapplication)
+    - [Accéder à phpMyAdmin](#accéder-à-phpmyadmin)
+6. [Sécurité](#sécurité)
+    - [Gestion des Secrets](#gestion-des-secrets)
+    - [Permissions du Fichier `.env`](#permissions-du-fichier-env)
+7. [Développement](#développement)
+    - [Modifier le Code](#modifier-le-code)
+    - [Hot Module Replacement (HMR)](#hot-module-replacement-hmr)
+8. [Déploiement en Production](#déploiement-en-production)
+9. [Contribuer](#contribuer)
+10. [Licence](#licence)
+
+## Introduction <a name="Introduction"></a>
 
 Arcadia est une application MVC destinée à optimiser l'expérience utilisateur et faciliter l'accès aux différentes fonctionnalités dédiées au fonctionnement du zoo. Elle propose un tableau de bord individualisé pour les différents acteurs du zoo.
 
-## Technologies Utilisées
+## Technologies Utilisées <a name="Technologies Utilisées"></a>
 
 - **Backend :** PHP 8.0-fpm-alpine
 - **Frontend :** Node.js 20-alpine3.19 avec Vite et Tailwind CSS
@@ -12,88 +37,35 @@ Arcadia est une application MVC destinée à optimiser l'expérience utilisateur
 - **Serveur Web :** Nginx 1.21-alpine
 - **Containerisation :** Docker & Docker Compose
 
-## Prérequis
+## Prérequis  <a name="prérequis"></a>
 
-- **Docker** (version >= 20.10)
-- **Docker Compose** (version >= 1.29)
+Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
-## Installation
+- **Docker** (version >= 20.10) : [Installation de Docker](https://docs.docker.com/get-docker/)
+- **Docker Compose** (version >= 1.29) : [Installation de Docker Compose](https://docs.docker.com/compose/install/)
+- **Git** : [Installation de Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-1. **Cloner le Répertoire :**
+## Installation  <a name="Installation"></a>
 
-    ```bash
-    git clone <repository-url>
-    cd arcadia
-    ```
 
-2. **Configurer les Variables d'Environnement :**
+Ensuite, ajustez les variables d'environnement dans le fichier `.env` pour correspondre à vos besoins (comme les mots de passe, les ports, etc.).
+### Cloner le Répertoire <a name=" Cloner le Répertoire"></a>
 
-    Copier le fichier `.env.example` en `.env` et ajuster les variables si nécessaire.
+Clonez le dépôt Git de votre projet :
 
-    ```bash
-    cp .env.example .env
-    ```
+```bash
+git clone https://github.com/RuyssenRomain/arcaTest.git
+cd dockerzoo
+```
 
-    Assurez-vous que `APP_ENV` est défini à `development` pour le développement.
+### Configurer le Fichier `.env` <a name="Configurer le Fichier `.env`"></a>
 
-3. **Démarrer les Conteneurs Docker :**
+Un fichier .env est fourni pour centraliser la configuration des variables d'environnement. Il suffit de le copier depuis l'exemple :
 
-    ```bash
-    docker-compose up --build
-    ```
+```bash
+ cp .env.example .env
+ ```
+Ensuite, ajustez les variables d'environnement dans le fichier .env pour correspondre à vos besoins (comme les mots de passe, les ports, etc.).
 
-4. **Accéder à l'Application :**
-
-    Ouvrez votre navigateur et naviguez vers [http://localhost:8080](http://localhost:8080).
-
-5. **Accéder à phpMyAdmin :**
-
-    Naviguez vers [http://localhost:8081](http://localhost:8081) pour gérer la base de données MySQL.
-
-## Développement
-
-### Scripts npm
-
-- **Démarrage en Développement :**
-
-    ```bash
-    npm run dev
-    ```
-
-    Cela démarre le serveur Vite avec HMR sur le port défini dans `.env` (par défaut 5172).
-
-- **Compilation pour la Production :**
-
-    ```bash
-    npm run build
-    ```
-
-    Cela compile les assets pour la production dans le dossier `public/dist`.
-
-## Dépannage
-
-- **Classes Tailwind CSS Manquantes :**
-    - Assurez-vous que `tailwind.config.js` inclut tous les chemins des fichiers contenant des classes Tailwind.
-    - Vérifiez que les fichiers CSS sont correctement importés dans `main.js`.
-
-- **HMR Ne Fonctionne Pas :**
-    - Vérifiez que les scripts dans `index.php` pointent vers le bon port (`5172`).
-    - Assurez-vous que le port est correctement mappé dans `docker-compose.yml`.
-    - Vérifiez les logs du conteneur Node et la console du navigateur pour identifier les erreurs.
-
-- **Erreur 502 Bad Gateway :**
-    - Vérifiez la configuration de Nginx pour s'assurer qu'elle pointe vers les bons conteneurs et ports.
-    - Vérifiez les logs de Nginx et des conteneurs PHP et Node pour identifier les causes de l'erreur.
-    - Assurez-vous que les conteneurs PHP et Node sont en cours d'exécution et accessibles.
-
-- **Problèmes de Compilation CSS :**
-    - Accédez au conteneur Node et vérifiez les fichiers CSS compilés.
-    - Consultez les logs du conteneur Node pour détecter des erreurs.
-
-## Contribution
-
-Les contributions sont les bienvenues ! Veuillez suivre les règles de codage et soumettre des pull requests avec des descriptions claires.
-
-## Licence
-
-[MIT](LICENSE)
+### Initialiser Docker Swarm (Pour les Secrets)<a name="Initialiser Docker Swarm (Pour les Secrets)"></a>
+En cours d'élaboration.

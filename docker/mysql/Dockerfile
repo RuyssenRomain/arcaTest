@@ -5,30 +5,29 @@ ARG MYSQL_VERSION
 FROM mysql:${MYSQL_VERSION}
 
 # Copier le script d'initialisation
-COPY ./docker/mysql/init.sql /docker-entrypoint-initdb.d/
+COPY ./docker/mysql/init.sql /docker-entrypoint-initdb.d/init.sql
 
 # Exposer le port MySQL
-EXPOSE ${MYSQL_PORT}
+EXPOSE 3306
 
-
-# image travaille avec un utilisateur root nécessaire pour le dev mais pour la production il faudra changer les accès au privilèges pour respecter les POLP.
-#code à tester pour la production ci dessous: 
+# Utiliser l'utilisateur root pour le développement
+# En production, il est recommandé de créer un utilisateur non-root => accés au moindre privilèges = respect des regles PLOP
 
 ###FROM mysql:5.7
 
-###Créer un utilisateur non-root
+# Créer un utilisateur non-root
 # RUN useradd -u 1001 mysqluser
 
-###Changer les permissions des répertoires nécessaires
+# Changer les permissions des répertoires nécessaires
 # RUN chown -R mysqluser:mysqluser /var/lib/mysql /var/run/mysqld
 
-###Copier le script d'initialisation
-# COPY ./docker/mysql/init.sql /docker-entrypoint-initdb.d/
+# Copier le script d'initialisation
+# COPY ./docker/mysql/init.sql /docker-entrypoint-initdb.d/init.sql
 
-###Exposer le port 3306
+# Exposer le port MySQL
 # EXPOSE 3306
 
-###Passer à l'utilisateur non-root
+# Passer à l'utilisateur non-root
 # USER mysqluser
 
 # Démarrer MySQL (le point d'entrée par défaut devrait fonctionner)

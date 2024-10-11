@@ -23,18 +23,8 @@ composer.lock
 
 # Fichiers d'environnement
 .env
-# .env.*
 .env.dev
 .env.prod
-
-# Fichiers de build frontend
-dist/
-dist/
-build/
-
-# Données persistantes Docker
-docker/mysql/data/
-docker/mongo/data/
 
 # Fichiers et répertoires spécifiques aux IDEs
 .vscode/
@@ -44,7 +34,7 @@ docker/mongo/data/
 .DS_Store
 
 # Fichiers de build
-public/css/main.css
+public/dist/
 
 # Fichiers spécifiques à Docker =========> à enlever ses trois points pourn le deéploiement pour l instant pour le dev on laisse 
 # Dockerfile

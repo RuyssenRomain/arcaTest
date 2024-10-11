@@ -4,14 +4,11 @@ ARG MONGO_VERSION
 # Utiliser l'argument pour choisir l'image MongoDB
 FROM mongo:${MONGO_VERSION}
 
-# Définir le répertoire de travail
-WORKDIR /usr/src/app
-
-# Copier les fichiers d'initialisation MongoDB
-COPY ./docker/mongo/init.js /docker-entrypoint-initdb.d/
+# Copier le script d'initialisation
+COPY ./docker/mongo/init.js /docker-entrypoint-initdb.d/init.js
 
 # Exposer le port MongoDB
-EXPOSE ${MONGO_PORT}
+EXPOSE 27017
 
-
-#image travail déjà avec un utilisateur non-root.
+# Utiliser l'utilisateur root pour le développement
+# En production, il est recommandé de créer un utilisateur non-root

@@ -48,9 +48,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 
 ## Installation
 
-Ensuite, ajustez les variables d'environnement dans le fichier `.env` pour correspondre à vos besoins (comme les mots de passe, les ports, etc.).
-
-### Cloner le Répertoire
+- ### Cloner le Répertoire
 
 Clonez le dépôt Git de votre projet :
 
@@ -58,8 +56,13 @@ Clonez le dépôt Git de votre projet :
 git clone https://github.com/RuyssenRomain/arcaTest.git
 cd dockerzoo
 ```
+slectionner la branche Version2-docker-MVC :
 
-### Configurer le Fichier `.env`
+```bash 
+git checkout Version2-docker-MVC
+```
+
+- ### Configurer le Fichier `.env`
 
 Un fichier .env est fourni pour centraliser la configuration des variables d'environnement. Il suffit de le copier depuis l'exemple :
 
@@ -68,5 +71,9 @@ Un fichier .env est fourni pour centraliser la configuration des variables d'env
  ```
 Ensuite, ajustez les variables d'environnement dans le fichier .env pour correspondre à vos besoins (comme les mots de passe, les ports, etc.).
 
-### Initialiser Docker Swarm (Pour les Secrets)<a name="Initialiser Docker Swarm (Pour les Secrets)"></a>
+ - ### Initialiser Docker Swarm (Pour les Secrets)
 En cours d'élaboration.
+
+## Utilisation
+
+- ### Construire et Démarrer les Conteneurs

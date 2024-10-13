@@ -4,10 +4,10 @@ Bienvenue dans le projet **Arcadia Zoo Application**, une application web modern
 
 ## Table des Matières
 
-1. [Introduction](#introduction)
-2. [Technologies Utilisées](#technologies-utilisées)
+1. [Introduction](#Introduction)
+2. [Technologies Utilisées](#Technologies-Utilisées)
 3. [Prérequis](#prérequis)
-4. [Installation](#installation)
+4. [Installation](#Installation)
     - [Cloner le Répertoire](#cloner-le-répertoire)
     - [Configurer le Fichier `.env`](#configurer-le-fichier-env)
     - [Initialiser Docker Swarm (Pour les Secrets)](#initialiser-docker-swarm-pour-les-secrets)

@@ -4,10 +4,10 @@ Bienvenue dans le projet **Arcadia Zoo Application**, une application web modern
 
 ## Table des Matières
 
-1. [Introduction](#Introduction)
-2. [Technologies Utilisées](#Technologies-Utilisées)
+1. [Introduction](#introduction)
+2. [Technologies Utilisées](#technologies-utilisées)
 3. [Prérequis](#prérequis)
-4. [Installation](#Installation)
+4. [Installation](#installation)
     - [Cloner le Répertoire](#cloner-le-répertoire)
     - [Configurer le Fichier `.env`](#configurer-le-fichier-env)
     - [Initialiser Docker Swarm (Pour les Secrets)](#initialiser-docker-swarm-pour-les-secrets)
@@ -25,14 +25,12 @@ Bienvenue dans le projet **Arcadia Zoo Application**, une application web modern
 9. [Contribuer](#contribuer)
 10. [Licence](#licence)
 
----
-## Introduction <a name="Introduction"></a>
+
+## Introduction
 
 Arcadia est une application MVC destinée à optimiser l'expérience utilisateur et faciliter l'accès aux différentes fonctionnalités dédiées au fonctionnement du zoo. Elle propose un tableau de bord individualisé pour les différents acteurs du zoo.
 
----
-
-## Technologies Utilisées <a name="Technologies Utilisées"></a>
+## Technologies Utilisées
 
 - **Backend :** PHP 8.0-fpm-alpine
 - **Frontend :** Node.js 20-alpine3.19 avec Vite et Tailwind CSS
@@ -40,9 +38,7 @@ Arcadia est une application MVC destinée à optimiser l'expérience utilisateur
 - **Serveur Web :** Nginx 1.21-alpine
 - **Containerisation :** Docker & Docker Compose
 
----
-
-## Prérequis  <a name="prérequis"></a>
+## Prérequis
 
 Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
@@ -50,11 +46,11 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 - **Docker Compose** (version >= 1.29) : [Installation de Docker Compose](https://docs.docker.com/compose/install/)
 - **Git** : [Installation de Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-## Installation  <a name="Installation"></a>
-
+## Installation
 
 Ensuite, ajustez les variables d'environnement dans le fichier `.env` pour correspondre à vos besoins (comme les mots de passe, les ports, etc.).
-### Cloner le Répertoire <a name=" Cloner le Répertoire"></a>
+
+### Cloner le Répertoire
 
 Clonez le dépôt Git de votre projet :
 
@@ -63,7 +59,7 @@ git clone https://github.com/RuyssenRomain/arcaTest.git
 cd dockerzoo
 ```
 
-### Configurer le Fichier `.env` <a name="Configurer le Fichier `.env`"></a>
+### Configurer le Fichier `.env`
 
 Un fichier .env est fourni pour centraliser la configuration des variables d'environnement. Il suffit de le copier depuis l'exemple :
 

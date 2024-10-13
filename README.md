@@ -56,7 +56,7 @@ Clonez le dépôt Git de votre projet :
 git clone https://github.com/RuyssenRomain/arcaTest.git
 cd dockerzoo
 ```
- - Selectionner la branche Version2-docker-MVC :
+Selectionner la branche Version2-docker-MVC :
 
 ```bash 
 git checkout Version2-docker-MVC
@@ -64,7 +64,7 @@ git checkout Version2-docker-MVC
 
 ### Configurer le Fichier `.env`
 
- - Un fichier .env est fourni pour centraliser la configuration des variables d'environnement. Il suffit de le copier depuis l'exemple en passant cette commande dans votre terminal :
+Un fichier .env est fourni pour centraliser la configuration des variables d'environnement. Il suffit de le copier depuis l'exemple en passant cette commande dans votre terminal :
 
 ```bash
  cp .env.example .env
@@ -77,20 +77,19 @@ En cours d'élaboration.
 ## Utilisation
 
 ### Construire et Démarrer les Conteneurs
-    Construire les Images Docker :
 
 ```bash
 docker-compose build
-```
-    
-    Une fois l'image construite , lancer les conteneurs pour Démarer l'application : 
-
+```  
 ```bash
 docker-compose up -d
 ```
-    Installer les dépendances NPM
 ```bash 
 npm install
 ```
+ces commandes vous permettrons de :
+ -- Construire les Images Docker.
+ - Lancer les conteneurs pour Démarer l'application.
+ - Installer les dépendances NPM
 ### Accéder à l'Application
 

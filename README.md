@@ -25,9 +25,12 @@ Bienvenue dans le projet **Arcadia Zoo Application**, une application web modern
 9. [Contribuer](#contribuer)
 10. [Licence](#licence)
 
+---
 ## Introduction <a name="Introduction"></a>
 
 Arcadia est une application MVC destinée à optimiser l'expérience utilisateur et faciliter l'accès aux différentes fonctionnalités dédiées au fonctionnement du zoo. Elle propose un tableau de bord individualisé pour les différents acteurs du zoo.
+
+---
 
 ## Technologies Utilisées <a name="Technologies Utilisées"></a>
 
@@ -36,6 +39,8 @@ Arcadia est une application MVC destinée à optimiser l'expérience utilisateur
 - **Base de Données :** MySQL 5.7 et MongoDB 7.0
 - **Serveur Web :** Nginx 1.21-alpine
 - **Containerisation :** Docker & Docker Compose
+
+---
 
 ## Prérequis  <a name="prérequis"></a>
 

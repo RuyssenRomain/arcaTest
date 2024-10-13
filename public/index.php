@@ -9,7 +9,7 @@
         <?php if ($_ENV['APP_ENV'] === 'developpement'): ?>
                 <!-- Scripts pour le développement avec Vite et HMR -->
                 <script type="module" src="http://localhost:5173/@vite/client"></script>
-                <script type="module" src="http://localhost:5173/js/main.js"></script>
+                <script type="module" src="http://localhost:5173/assets/js/main.js"></script>
         <?php else: ?>
             <!-- Fichiers CSS et JS compilés pour la production -->
             <link rel="stylesheet" href="/dist/main.css">

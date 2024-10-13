@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
-    "tailwind:build": "tailwindcss -i ./public/css/tailwind.css -o ./public/dist/main.css --watch"
+    "tailwind:build": "tailwindcss -i ./public/assets/css/tailwind.css -o ./public/dist/main.css --watch"
   },
   "keywords": [
     "zoo",

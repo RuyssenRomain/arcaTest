@@ -30,8 +30,8 @@ vendor/
 # Ignorer les fichiers de build et de distribution
 /dist/
 /build/
-/public/css/main.css
-/public/js/*.js
+/public/assets/css/main.css
+/public/assets/js/*.js
 
 # Ignorer les fichiers spécifiques à Docker
 Dockerfile

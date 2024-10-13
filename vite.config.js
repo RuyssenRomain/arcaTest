@@ -7,7 +7,7 @@ export default defineConfig({
     manifest: true,  // Génère un fichier manifest.json
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'public/js/main.js'),  // Point d'entrée du fichier main.js
+        main: path.resolve(__dirname, 'public/assets/js/main.js'),  // Point d'entrée du fichier main.js
       },
     },
     outDir: './public/dist',  // Répertoire de sortie après la compilation

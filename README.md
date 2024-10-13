@@ -10,20 +10,27 @@ Bienvenue dans le projet **Arcadia Zoo Application**, une application web modern
 4. [Installation](#installation)
     - [Cloner le Répertoire](#cloner-le-répertoire)
     - [Configurer le Fichier `.env`](#configurer-le-fichier-env)
-    - [Initialiser Docker Swarm (Pour les Secrets)](#initialiser-docker-swarm-pour-les-secrets)
-5. [Utilisation](#utilisation)
-    - [Construire et Démarrer les Conteneurs](#construire-et-démarrer-les-conteneurs)
-    - [Accéder à l'Application](#accéder-à-lapplication)
+    - [Installer les Dépendances Backend](#installer-les-Dépendances-Backend)
+    - [Installer les Dépendances Front-end](#installer-les-Dépendances-Front-end)
+5. [Construire et Démarrer les Conteneurs](#construire-et-Démarrer-les-Conteneurs)
+    - [Commandes Utiles](#commandes-Utiles)
+6. [Accéder à l'Application](#Accéder-à-l'Application)
+    - [Application Web](#application-Web)
     - [Accéder à phpMyAdmin](#accéder-à-phpmyadmin)
-6. [Sécurité](#sécurité)
-    - [Gestion des Secrets](#gestion-des-secrets)
+    - [Accéder à MongoDb Compass](#Accéder-à-MongoDB-Compass)
+7. [Déploiement](#déploiement)
+    - [Docker Swarm](#gestion-des-secrets)
+    - [En cours de construction ](#en-cours-de-construction)
+8. [sécurité](#sécurité)
+    - [gestion-des-secrets](#gestion-des-secrets)
     - [Permissions du Fichier `.env`](#permissions-du-fichier-env)
-7. [Développement](#développement)
-    - [Modifier le Code](#modifier-le-code)
+    - [recommandations](#recommandations)
+8. [Développement](#développement)
     - [Hot Module Replacement (HMR)](#hot-module-replacement-hmr)
-8. [Déploiement en Production](#déploiement-en-production)
-9. [Contribuer](#contribuer)
-10. [Licence](#licence)
+10. [Contribuer](#contribuer)
+11. [Licence](#licence)
+12. [Contact](#contact)
+13. [capture écran application]("capture-écran-application)
 
 
 ## Introduction
@@ -64,17 +71,48 @@ git checkout Version2-docker-MVC
 
 ### Configurer le Fichier `.env`
 
-Un fichier .env est fourni pour centraliser la configuration des variables d'environnement. Il suffit de le copier depuis l'exemple en passant cette commande dans votre terminal :
+Un fichier .env.exmple vous est fourni pour aider à centraliser la configuration des variables d'environnement. 
 
+    Exécuter ce code dans votre terminal pour initialiser votre fichier .env :
 ```bash
  cp .env.example .env
  ```
 Ensuite, ajustez les variables d'environnement dans le fichier .env pour correspondre à vos besoins (comme les mots de passe, les ports, etc.).
 
-### Initialiser Docker Swarm (Pour les Secrets)
-En cours d'élaboration.
 
-## Utilisation
+## Installer les Dépendances Backend
+Si votre projet utilise `Composer` pour gérer les dépendances PHP, vous devez installer les bibliothèques nécessaires.
+
+ - `Depuis le Conteneur PHP` 
+    Exécutez les commandes suivantes pour accéder au conteneur PHP et installer les dépendances :
+```bash
+    docker-compose exec php sh
+    composer install
+    exit
+```
+
+ - `Ou depuis l'Hôte` (si vous avez PHP et Composer installés)
+    ```bash 
+        composer install    
+    ```
+    Cela installera les dépendances définies dans le fichier composer.json à la racine du projet.
+
+## Installer les Dépendances Front-end
+Pour installer les dépendances front-end, vous devez utiliser npm.
+
+ - `depuis le conteneur Node.js`
+    Executer cette commande pour accéder au conteneur Node.js et installer les dépendances :
+```bash
+    docker-compose exec node sh
+    npm install
+    exit
+```
+
+ - `Ou depuis l'hôte` (si vous avez npm installés)
+ ```bash
+ npm install
+```
+    Cela installera les dépendances définies dans le fichier package.json à la racine du projet.
 
 ### Construire et Démarrer les Conteneurs
 
@@ -87,9 +125,14 @@ docker-compose up -d
 ```bash 
 npm install
 ```
-ces commandes vous permettrons de :
- -- Construire les Images Docker.
- - Lancer les conteneurs pour Démarer l'application.
- - Installer les dépendances NPM
+Explications :
+ - `docker-compose build` : Construit les images Docker en fonction des Dockerfiles.
+ - `docker-compose up -d` : Démarre les conteneurs en arrière-plan.
+ - `npm install` : Installer les différentes dépendances.
+ - ``
+
+
 ### Accéder à l'Application
 
+### Initialiser Docker Swarm (Pour les Secrets)
+En cours d'élaboration.

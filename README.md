@@ -109,9 +109,9 @@ Pour installer les dépendances front-end, vous devez utiliser npm.
 
  - **Ou depuis l'hôte** (si vous avez npm installés)
 ```bash
- npm install
+  npm install
 ```
-    Cela installera les dépendances définies dans le fichier package.json à la racine du projet.
+Cela installera les dépendances définies dans le fichier package.json à la racine du projet.
 
 ## Construire et Démarrer les Conteneurs
 

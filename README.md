@@ -72,7 +72,7 @@ git checkout Version2-docker-MVC
 
 Un fichier .env.exmple vous est fourni pour aider à centraliser la configuration des variables d'environnement. 
 
-    Exécuter ce code dans votre terminal pour initialiser votre fichier `.env` :
+Exécuter ce code dans votre terminal pour initialiser votre fichier `.env` :
 ```bash
  cp .env.example .env
  ```
@@ -94,7 +94,7 @@ Si votre projet utilise `Composer` pour gérer les dépendances **PHP**, vous de
 ```bash 
     composer install    
 ```
-    Cela installera les dépendances définies dans le fichier composer.json à la racine du projet.
+Cela installera les dépendances définies dans le fichier composer.json à la racine du projet.
 
 ### Installer les Dépendances Front-end
 Pour installer les dépendances front-end, vous devez utiliser npm.

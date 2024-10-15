@@ -1,6 +1,6 @@
 # Arcadia Zoo Application
 
-Bienvenue dans le projet **Arcadia Zoo Application**, une application web moderne utilisant **PHP**, **Node.js** (Vite), **Tailwind CSS**, **MySQL**, **MongoDB**, et **Nginx**. Cette application est containerisée avec **Docker** et **Docker Compose**, offrant une configuration sécurisée, centralisée et évolutive.
+Bienvenue dans le projet **Zoo-Arcadia** est une application web moderne utilisant **PHP**, **Node.js** (Vite), **Tailwind CSS**, **MySQL**, **MongoDB**, et **Nginx**. Cette application est containerisée avec **Docker** et **Docker Compose**, offrant une configuration sécurisée, centralisée et évolutive.
 
 ## Table des Matières
 
@@ -34,7 +34,7 @@ Bienvenue dans le projet **Arcadia Zoo Application**, une application web modern
 
 ## Introduction
 
-Arcadia est une application MVC destinée à optimiser l'expérience utilisateur et faciliter l'accès aux différentes fonctionnalités dédiées au fonctionnement du zoo. Elle propose un tableau de bord individualisé pour les différents acteurs du zoo.
+Zoo-Arcadia est une application MVC destinée à optimiser l'expérience utilisateur et faciliter l'accès aux différentes fonctionnalités dédiées au fonctionnement du zoo. Elle propose un tableau de bord individualisé pour les différents acteurs du zoo.
 
 ## Technologies Utilisées
 

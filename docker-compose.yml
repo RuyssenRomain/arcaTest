@@ -52,6 +52,7 @@ services:
     volumes:
       - ./src:/var/www/html/src
       - ./public:/var/www/html/public 
+      - ./.env:/var/www/html/.env #uniquement pour le developpement 
     networks:
       - backend
     container_name: my-php-container

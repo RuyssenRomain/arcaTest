@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    {# Bloc pour surcharger le head dans les templates enfants si nécessaire #}
+    {% block head %}
+        <title>{{ title|default('ARCADIA') }}</title>
+        
+        {# Condition pour charger les fichiers JS/CSS en fonction de l'environnement #}
+        {% if app_env == 'developpement' %}
+            <!-- Scripts pour le développement avec Vite et HMR -->
+            <script type="module" src="http://localhost:5173/@vite/client"></script>
+            <script type="module" src="http://localhost:5173/assets/js/main.js"></script>
+        {% else %}
+            <!-- Fichiers CSS et JS compilés pour la production -->
+            <link rel="stylesheet" href="/dist/main.css">
+            <script type="module" src="/dist/main.js"></script>
+        {% endif %}
+    {% endblock %} 
+</head>
+
+<body class="flex flex-col min-h-screen bg-custom-beige">
+
+    {# Header commun à toutes les pages - fixe en haut #}
+    <header class="fixed top-0 left-0 flex items-center justify-between w-full mx-auto py-0.5 px-9 bg-black/30 text-green-900 shadow-md ">
+        <img class="w-100 h-100" src="../assets/images/logo/logo-arcadia.svg" alt="symbole du zoo représentant un lion de profil">
+        <nav>
+            <ul class="flex space-x-8 text-custom-brown">
+                <li class="px-3 py-1 rounded-lg hover:text-zinc-900 bg-custom-beige hover:bg-green-links"><a href="/">Accueil</a></li>
+                <li class="px-3 py-1 rounded-lg hover:text-zinc-900 bg-custom-beige hover:bg-green-links"><a href="/habitats">Habitats</a></li>
+                <li class="px-3 py-1 rounded-lg hover:text-zinc-900 bg-custom-beige hover:bg-green-links"><a href="/services">Services</a></li>
+                <li class="px-3 py-1 rounded-lg hover:text-zinc-900 bg-custom-beige hover:bg-green-links"><a href="/animaux">Animaux</a></li>
+                <li class="flex px-3 py-1 space-x-2 rounded-lg hover:text-zinc-900 bg-custom-beige hover:bg-green-links"><img class="w-6 h-full" src="../assets/images/logo/loging.png" alt=""><a href="/connection">Connection</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    {# Bloc principal pour le contenu spécifique de chaque page #}
+    <main class=" bg-[url('/assets/images/illustrations/accueil-arcadia.webp')] bg-cover bg-center h-screen">
+        {# La classe `mt-20` est utilisée pour décaler le contenu à cause du header fixe #}
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {# Footer commun à toutes les pages - fixe en bas #}
+    <footer class="fixed bottom-0 left-0 w-full p-4 text-center bg-custom-green text-custom-beige">
+        <p>&copy; 2024 Zoo Arcadia</p>
+    </footer>
+
+</body>
+</html>

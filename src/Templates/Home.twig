@@ -1,0 +1,12 @@
+{% extends 'layout.twig' %}
+
+{# Surcharge du bloc 'content' pour le contenu spécifique à la page d'accueil #}
+{% block content %}
+    <div class="relative flex flex-col items-center mt-16 text-xl text-center text-white position top-96">
+        <h1 class="text-6xl font-bold text-white underline text-shadow-black ">{{ title }}</h1>
+        <p class="relative w-2/4 pt-8 top-2/4">{{ message }}</p>
+
+        {# Div pour l'injection dynamique des données par app.js #}
+        <div id="content"></div>
+    </div>
+{% endblock %}

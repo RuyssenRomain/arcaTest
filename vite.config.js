@@ -10,7 +10,7 @@ export default defineConfig({
         main: path.resolve(__dirname, 'public/assets/js/main.js'),  // Point d'entrée du fichier main.js
       },
     },
-    outDir: './public/dist',  // Répertoire de sortie après la compilation
+    outDir: 'public/dist',  // Répertoire de sortie après la compilation
     emptyOutDir: true,  // Vide le répertoire de sortie avant la compilation
   },
   server: {

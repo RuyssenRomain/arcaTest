@@ -25,7 +25,7 @@ COPY ./composer.json ./composer.lock ./
 COPY ./src /var/www/html/src
 COPY ./public /var/www/html/public
 
-# Installer les dépendances PHP
+# Installer les dépendances PHP --<--no-dev est utilisé pour installer uniquement les dépendances nécessaires en production, excluant ainsi les dépendances de développement.>
 RUN composer install --no-dev --optimize-autoloader
 
 # Changer les permissions

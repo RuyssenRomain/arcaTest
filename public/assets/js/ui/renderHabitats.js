@@ -1,5 +1,5 @@
 // renderHabitats.js - Gère l'affichage des habitats dans le DOM
-import { fetchHabitats } from '../api/fetchHabitat';
+import { fetchHabitats } from '../api/fetchHabitats';
 
 /**
  * Fonction pour afficher les habitats récupérés dans le DOM.

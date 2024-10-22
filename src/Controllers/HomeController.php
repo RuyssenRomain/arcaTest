@@ -3,9 +3,7 @@
 namespace App\Controllers;
 
 use App\tools\utils\Renderer;
-use Psr\Http\Message\ResponseInterface;
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
+
 
 /**
  * Contrôleur pour gérer les actions liées à la page d'accueil.
@@ -17,6 +15,7 @@ class HomeController
     {
         // Paramètres à passer à la vue
         $params = [
+            'titleHead' => 'ZOO ARCADIA',
             'title' => 'Bienvenue',
             'message' => 'Plongez dans l\'harmonie de la forêt de Brocéliande. Découvrez les animaux du monde entier.'
         ];

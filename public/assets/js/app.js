@@ -7,7 +7,6 @@ import { renderHabitats } from './ui/renderHabitats';
 // Fonction pour détecter la page courante et exécuter le bon render
 function handlePageRendering() {
     const currentPath = window.location.pathname;
-
     if (currentPath === '/' || currentPath === '/accueil') {
         // Page d'accueil - Affiche tous les contenus
         renderHabitats();

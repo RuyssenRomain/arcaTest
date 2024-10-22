@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    {# <link rel="icon" type="image/x-icon" href="/favicon.ico"> #} 
 
     {# Bloc pour surcharger le head dans les templates enfants si nécessaire #}
     {% block head %}
-        <title>{{ title|default('ARCADIA') }}</title>
+        <title>{{ titleHead|default('ARCADIA') }}</title>
         
         {# Condition pour charger les fichiers JS/CSS en fonction de l'environnement #}
         {% if app_env == 'developpement' %}

@@ -18,8 +18,11 @@ class Router
     public function __construct()
     {   
         $this->router = new AltoRouter();
+        
+        //pour capturer l'instance de rooter pour éviter d'écrire $this->router->map() dans le fichier web.php
         $router = $this->router;
-        require ROOT_PATH . '/src/Router/web.php';
+        require ROOT_PATH . '/src/Router/route/web.php';
+        
     }
 
     /**

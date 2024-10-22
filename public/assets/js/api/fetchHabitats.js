@@ -5,8 +5,7 @@
  */
 export async function fetchHabitats() {
     
-    
-    console.log('verifie si cela est apporter depuis le fichier fetchHabitats.js');
+    console.log('test du fetch dans le fichier fetchHabitats')
     // try {
     //     const response = await fetch('/api/habitats');
         

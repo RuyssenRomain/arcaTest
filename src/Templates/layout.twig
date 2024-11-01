@@ -1,55 +1,190 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {# <link rel="icon" type="image/x-icon" href="/favicon.ico"> #} 
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		{#
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		#}
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+			rel="stylesheet" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+			rel="stylesheet" />
 
-    {# Bloc pour surcharger le head dans les templates enfants si nécessaire #}
-    {% block head %}
-        <title>{{ titleHead|default('ARCADIA') }}</title>
-        
-        {# Condition pour charger les fichiers JS/CSS en fonction de l'environnement #}
-        {% if app_env == 'developpement' %}
-            <!-- Scripts pour le développement avec Vite et HMR -->
-            <script type="module" src="http://localhost:5173/@vite/client"></script>
-            <script type="module" src="http://localhost:5173/assets/js/main.js"></script>
-        {% else %}
-            <!-- Fichiers CSS et JS compilés pour la production -->
-            <link rel="stylesheet" href="/dist/main.css">
-            <script type="module" src="/dist/main.js"></script>
-        {% endif %}
-    {% endblock %} 
-</head>
+		<!-- Option 1: Include in HTML -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+		{# Bloc pour surcharger le head dans les templates enfants si nécessaire #}
+		{% block head %}
+		<title>{{ titleHead|default('ARCADIA') }}</title>
 
-<body class="flex flex-col min-h-screen bg-custom-beige">
+		{# Condition pour charger les fichiers JS/CSS en fonction de l'environnement
+		#} {% if app_env == 'developpement' %}
+		<!-- Scripts pour le développement avec Vite et HMR -->
+		<script type="module" src="http://localhost:5173/@vite/client"></script>
+		<script
+			type="module"
+			src="http://localhost:5173/assets/js/main.js"></script>
+		{% else %}
+		<!-- Fichiers CSS et JS compilés pour la production -->
+		<link rel="stylesheet" href="/dist/main.css" />
+		<script type="module" src="/dist/main.js"></script>
+		{% endif %} {% endblock %}
+	</head>
 
-    {# Header commun à toutes les pages - fixe en haut #}
-    <header class="fixed top-0 left-0 flex items-center justify-between w-full mx-auto py-0.5 px-9 bg-black/30 text-green-900 shadow-md ">
-        <img class="w-100 h-100" src="../assets/images/logo/logo-arcadia.svg" alt="symbole du zoo représentant un lion de profil">
-        <nav>
-            <ul class="flex space-x-8 text-custom-brown">
-                <li class="px-3 py-1 rounded-lg hover:text-zinc-900 bg-custom-beige hover:bg-green-links"><a href="/">Accueil</a></li>
-                <li class="px-3 py-1 rounded-lg hover:text-zinc-900 bg-custom-beige hover:bg-green-links"><a href="/habitats">Habitats</a></li>
-                <li class="px-3 py-1 rounded-lg hover:text-zinc-900 bg-custom-beige hover:bg-green-links"><a href="/services">Services</a></li>
-                <li class="px-3 py-1 rounded-lg hover:text-zinc-900 bg-custom-beige hover:bg-green-links"><a href="/animaux">Animaux</a></li>
-                <li class="flex px-3 py-1 space-x-2 rounded-lg hover:text-zinc-900 bg-custom-beige hover:bg-green-links"><img class="w-6 h-full" src="../assets/images/logo/loging.png" alt=""><a href="/connection">Connection</a></li>
-                
-            </ul>
-        </nav>
-    </header>
+	<body id="top" class="flex flex-col min-h-screen overflow-hidden font-Merri">
+		{# Header commun à toutes les pages - fixe en haut #}
+		<header
+			class="fixed top-0 left-0 flex items-center justify-between w-full px-5 mx-auto text-white shadow-sm h- border-b-1 lg:px-9 bg-black/30 shadow-custom-beige">
+			<nav id="navbar" aria-label="Navigation prinicipale text-xs lg:text-base">
+				<ul
+					class="items-center hidden space-x-4 md:flex lg:space-x-7 text-custom-brown">
+					<li
+						class="px-2 py-2 rounded-lg hover:text-zinc-900 bg-custom-beige hover:bg-green-links">
+						<a href="/">Accueil</a>
+					</li>
 
-    {# Bloc principal pour le contenu spécifique de chaque page #}
-    <main class=" bg-[url('/assets/images/illustrations/accueil-arcadia.webp')] bg-cover bg-center h-screen">
-        {# La classe `mt-20` est utilisée pour décaler le contenu à cause du header fixe #}
-        {% block content %}
-        {% endblock %}
-    </main>
+					<li class="relative px-2 py-2 text-center rounded-lg bg-custom-beige hover:text-zinc-900 hover:bg-green-links">
+                        <button type="button" id="menu-button" aria-expanded="false" class="flex items-center ">
+                            Habitats
+                            <svg class="w-5 h-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                            </svg>
+                          </button>
+                        
+                          <ul id="menu-habitats" class="absolute left-0 hidden mt-3 rounded-md shadow-lg bg-custom-beige w-28 ">
+                            <li><a href="/habitats" class="block px-4 py-2 text-sm text-gray-700 hover:text-zinc-900 hover:bg-green-links">Habitats</a></li>
+                            <li><a href="/habitats/savane" class="block px-4 py-2 text-sm text-gray-700 hover:text-zinc-900 hover:bg-green-links">Savane</a></li>
+                            <li><a href="/habitats/jungle" class="block px-4 py-2 text-sm text-gray-700 hover:text-zinc-900 hover:bg-green-links">Jungle</a></li>
+                            <li><a href="/habitats/marais" class="block px-4 py-2 text-sm text-gray-700 hover:text-zinc-900 hover:bg-green-links">Marais</a></li>
+                          </ul>
+                      </li>
 
-    {# Footer commun à toutes les pages - fixe en bas #}
-    <footer class="fixed bottom-0 left-0 w-full p-4 text-center bg-custom-green text-custom-beige">
-        <p>&copy; 2024 Zoo Arcadia</p>
-    </footer>
+					<li
+						class="px-2 py-2 rounded-lg lg:text-md hover:text-zinc-900 bg-custom-beige hover:bg-green-links">
+						<a href="#services">Services</a>
+					</li>
+					<li
+						class="px-2 py-2 rounded-lg lg:text-md hover:text-zinc-900 bg-custom-beige hover:bg-green-links">
+						<a href="#animaux">Animaux</a>
+					</li>
+					<li
+						class="flex items-center px-2 py-1 space-x-2 rounded-lg lg:py-2 hover:text-zinc-900 bg-custom-beige hover:bg-green-links">
+						<img
+							class="w-6 h-full"
+							src="../assets/images/logo/loging.png"
+							alt="" /><a href="#connection">Connexion</a>
+					</li>
+				</ul>
+				<button
+					id="burger"
+					aria-label="Open menu"
+					aria-expanded="false"
+					class="z-50 burger md:hidden">
+					<span class="bun burger-top"></span>
+					<span class="bun burger-bottom"></span>
+				</button>
+			</nav>
+			<div class="flex items-center py-1">
+				<a
+					class="flex items-center mt-2"
+					href="#top"
+					aria-label="Page d'accueil du Zoo Arcadia">
+					<strong class="pr-2 underline uppercase">arcadia</strong>
+					<img
+						class="w-20 h-20 md:w-full md:h-full"
+						src="../assets/images/logo/logo-arcadia.svg"
+						alt="symbole du zoo représentant un lion de profil" />
+				</a>
+			</div>
+		</header>
 
-</body>
+		{# Bloc principal pour le contenu spécifique de chaque page #}
+		<main>
+			<ul
+				id="toggled-menu"
+				class="fixed z-10 flex flex-col w-2/4 text-white duration-500 shadow-sm sm:w-64 top-24 shadow-slate-700 -left-full md:hidden">
+				<li class="flex w-full pt-2">
+					<a
+						href="#Accueil"
+						class="w-4/5 p-2 mx-auto text-sm font-semibold leading-7 uppercase rounded-md hover:text-custom-brown hover:bg-custom-beige/75"
+						>Accueil
+					</a>
+				</li>
+				<li id="collapseHabitats" class="flex justify-center w-full leading-7">
+					<a
+						href="#Habitats"
+						class="flex justify-between w-4/5 p-2 font-semibold duration-300 rounded-md cursor-pointer hover:text-custom-brown hover:bg-custom-beige/75"
+						>Habitats
+						<span class="text-sm rotate-180" id="arrow">
+							<i class="bi bi-chevron-down"></i>
+						</span>
+					</a>
+				</li>
+				<li
+					id="submenu"
+					class="hidden w-4/5 mx-auto mt-2 text-sm text-center rounded-md shadow-md bg-custom-beige/25 shadow-slate-950">
+					<button></button>
+					<a
+						href="/habitats"
+						class="block p-2 rounded-md cursor-pointer hover:bg-lime-500/25">
+						Tous les habitats</a
+					>
+					<a
+						href="/habitats/Savane"
+						class="block p-2 mt-1 rounded-md cursor-pointer hover:bg-lime-500/25"
+						>Savane</a
+					>
+					<a
+						href="/habitats/jungle"
+						class="block p-2 mt-1 rounded-md cursor-pointer hover:bg-lime-500/25"
+						>Jungle</a
+					>
+					<a
+						href="/habitats/Marais"
+						class="block p-2 mt-1 rounded-md cursor-pointer hover:bg-lime-500/25"
+						>Marais</a
+					>
+				</li>
+				<li class="flex justify-start w-full">
+					<a
+						href="#Services"
+						class="w-4/5 p-2 mx-auto mt-2 text-sm font-semibold leading-7 uppercase rounded-md hover:bg-custom-beige/75 hover:text-custom-brown"
+						>Services
+					</a>
+				</li>
+				<li class="flex justify-start w-full">
+					<a
+						href="#Contact"
+						class="w-4/5 p-2 mx-auto mt-2 text-sm font-semibold leading-7 uppercase rounded-md hover:bg-custom-beige/75 hover:text-custom-brown"
+						>Contact
+					</a>
+				</li>
+				<li class="flex justify-start w-full pb-2">
+					<a
+						href="#connexion"
+						class="w-4/5 p-2 mx-auto mt-2 text-sm font-semibold leading-7 uppercase rounded-md hover:bg-custom-beige/75 hover:text-custom-brown"
+						>connexion
+					</a>
+				</li>
+			</ul>
+			<section
+				class="w-full bg-[url('/assets/images/illustrations/accueil-arcadia.webp')] bg-cover bg-center h-[900px]">
+				{% block content %} {% endblock %}
+			</section>
+		</main>
+
+		{# Footer commun à toutes les pages - fixe en bas #}
+		<footer
+			class="bottom-0 left-0 w-full p-4 bg-custom-green text-custom-beige">
+			<p>&copy; 2024 Zoo Arcadia</p>
+		</footer>
+	</body>
 </html>

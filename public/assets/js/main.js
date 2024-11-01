@@ -1,9 +1,124 @@
 // Import du fichier CSS Tailwind
-import '../css/tailwind.css';  
-import '../css/main.css'; 
+import "../css/tailwind.css";
+import "../css/main.css";
 
 // Importer les fonctionnalités de app.js pour les requêtes API et l'affichage
-import './app.js';
+import "./app.js";
+import "./anime/burger.js";
 
 // Autres scripts globaux ou spécifiques peuvent être ajoutés ici si nécessaire
-console.log('Main.js chargé avec succès !');
+console.log("Main.js chargé avec succès !");
+
+document.addEventListener("DOMContentLoaded", () => {
+        afficheBurgerMenu();
+         ShowSubmenuHabitats(); 
+    });
+
+    function afficheBurgerMenu() {
+        const BurgerBtn = document.querySelector("#burger");
+        const BurgerMenu = document.querySelector("#toggled-menu");
+        const header = document.querySelector("header");
+    
+        BurgerBtn.addEventListener("click", (e) => {
+            e.stopPropagation(); 
+            // Empêche la propagation pour éviter la fermeture immédiate
+            const isChecked = BurgerBtn.getAttribute("aria-expanded") === "true";
+            BurgerMenu.classList.toggle("-left-full");
+            BurgerMenu.classList.toggle("left-0");
+            header.classList.toggle("bg-custom-green");
+            BurgerMenu.classList.toggle("bg-custom-green");
+            BurgerBtn.setAttribute("aria-expanded", !isChecked);
+        });
+    
+        // Fermer le menu burger si l'on clique à l'extérieur
+        document.addEventListener("click", (event) => {
+            if (!BurgerMenu.contains(event.target) && event.target !== BurgerBtn) {
+                BurgerMenu.classList.add("-left-full");
+                BurgerMenu.classList.remove("left-0");
+                BurgerBtn.setAttribute("aria-expanded", "false");
+                header.classList.remove("bg-custom-green");
+                BurgerMenu.classList.remove("bg-custom-green");
+            }
+        });
+    }
+
+    function ShowSubmenuHabitats() {
+        const arrowDown = document.querySelector("#arrow");
+        const submenu = document.querySelector("#submenu");
+        const ButtonCollapse = document.querySelector("#collapseHabitats");
+    
+        // Toggle le sous-menu avec animation au clic sur le bouton
+        ButtonCollapse.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const isExpanded = ButtonCollapse.getAttribute("aria-expanded") === "true";
+    
+            if (isExpanded) {
+                // Fermer le sous-menu avec l'animation de disparition
+                submenu.classList.remove("animate-fadeInScale");
+                submenu.classList.add("animate-fadeOutScale");
+                setTimeout(() => {
+                    submenu.classList.add("hidden");
+                    ButtonCollapse.setAttribute("aria-expanded", "false");
+                }, 150); // Délai pour terminer l'animation
+                arrowDown.classList.remove("rotate-180"); // Remet la flèche dans son état initial
+            } else {
+                // Afficher le sous-menu avec l'animation d'apparition
+                submenu.classList.remove("hidden", "animate-fadeOutScale");
+                submenu.classList.add("animate-fadeInScale");
+                ButtonCollapse.setAttribute("aria-expanded", "true");
+                arrowDown.classList.add("rotate-180"); // Tourne la flèche
+            }
+        });
+    
+        // Ferme le sous-menu au clic extérieur
+        document.addEventListener("click", (event) => {
+            const isExpanded = ButtonCollapse.getAttribute("aria-expanded") === "true";
+            
+            if (
+                isExpanded && 
+                !ButtonCollapse.contains(event.target) && 
+                !submenu.contains(event.target)
+            ) {
+                // Fermer le sous-menu avec l'animation de disparition
+                submenu.classList.remove("animate-fadeInScale");
+                submenu.classList.add("animate-fadeOutScale");
+                setTimeout(() => {
+                    submenu.classList.add("hidden");
+                    ButtonCollapse.setAttribute("aria-expanded", "false");
+                    arrowDown.classList.remove("rotate-180"); // Remet la flèche dans son état initial
+                }, 150); // Délai pour terminer l'animation
+            }
+        });
+    }
+// test ouverture habitats dropdown de la navbar
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('menu-button');
+    const menu = document.getElementById('menu-habitats');
+  
+    menuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+      const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+  
+      if (isExpanded) {
+        // Masquer le menu avec l'animation de disparition
+        menu.classList.remove('animate-fadeInScale');
+        menu.classList.add('animate-fadeOutScale');
+  
+        // Ajouter `hidden` après l'animation
+        setTimeout(() => {
+          menu.classList.add('hidden');
+          menuButton.setAttribute('aria-expanded', 'false');
+        }, 75);
+      } else {
+        // Afficher le menu avec l'animation d'apparition
+        menu.classList.remove('hidden', 'animate-fadeOutScale');
+        menu.classList.add('animate-fadeInScale');
+        menuButton.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+  
+
+  
+  

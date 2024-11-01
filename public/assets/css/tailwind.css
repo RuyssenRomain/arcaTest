@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .burger {
+    @apply relative flex flex-col items-center justify-center border-2 rounded cursor-pointer w-9 h-9;
+  }
+
+  .bun {
+    @apply absolute bg-white block h-[3px] w-7 transition-transform ease-in-out duration-300;
+  }
+
+  /* Position initiale des barres */
+  .burger-top {
+    top: 30%;
+    transition:  0.2s ease-in-out;
+}
+
+.burger-bottom {
+    top: 65%;
+    transition:  0.2s ease-in-out;
+  }
+
+  /* État où les barres se rejoignent complètement au centre */
+  .center .burger-top,
+  .center .burger-bottom {
+    top: 50%;
+  }
+
+  /* État croisé (croix) */
+  .cross .burger-top {
+    transform: rotate(45deg);
+    top: 50%;
+  }
+
+  .cross .burger-bottom {
+    transform: rotate(-45deg);
+    top: 50%;
+  }
+}
+
+

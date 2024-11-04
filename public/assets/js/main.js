@@ -5,6 +5,7 @@ import "../css/main.css";
 // Importer les fonctionnalités de app.js pour les requêtes API et l'affichage
 import "./app.js";
 import "./anime/burger.js";
+import "./anime/swipper_animals.js"
 
 // Autres scripts globaux ou spécifiques peuvent être ajoutés ici si nécessaire
 console.log("Main.js chargé avec succès !");
@@ -12,6 +13,7 @@ console.log("Main.js chargé avec succès !");
 document.addEventListener("DOMContentLoaded", () => {
         afficheBurgerMenu();
          ShowSubmenuHabitats(); 
+         ShowNavMenuHabitats(); 
     });
 
     function afficheBurgerMenu() {
@@ -82,43 +84,61 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Fermer le sous-menu avec l'animation de disparition
                 submenu.classList.remove("animate-fadeInScale");
                 submenu.classList.add("animate-fadeOutScale");
+                arrowDown.classList.remove("rotate-180"); // Remet la flèche dans son état initial
                 setTimeout(() => {
                     submenu.classList.add("hidden");
                     ButtonCollapse.setAttribute("aria-expanded", "false");
-                    arrowDown.classList.remove("rotate-180"); // Remet la flèche dans son état initial
                 }, 150); // Délai pour terminer l'animation
             }
         });
     }
 // test ouverture habitats dropdown de la navbar
 
-document.addEventListener('DOMContentLoaded', () => {
-    const menuButton = document.getElementById('menu-button');
-    const menu = document.getElementById('menu-habitats');
-  
-    menuButton.addEventListener('click', (e) => {
+function ShowNavMenuHabitats() {
+    const menuButton = document.getElementById("menu-button");
+    const menu = document.getElementById("menu-habitats");
+    const arrowDown = document.getElementById("arrowNav")
+
+    // Toggle le menu avec animation au clic sur le bouton
+    menuButton.addEventListener("click", (e) => {
         e.stopPropagation();
-      const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
-  
-      if (isExpanded) {
-        // Masquer le menu avec l'animation de disparition
-        menu.classList.remove('animate-fadeInScale');
-        menu.classList.add('animate-fadeOutScale');
-  
-        // Ajouter `hidden` après l'animation
-        setTimeout(() => {
-          menu.classList.add('hidden');
-          menuButton.setAttribute('aria-expanded', 'false');
-        }, 75);
-      } else {
-        // Afficher le menu avec l'animation d'apparition
-        menu.classList.remove('hidden', 'animate-fadeOutScale');
-        menu.classList.add('animate-fadeInScale');
-        menuButton.setAttribute('aria-expanded', 'true');
-      }
+        const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+
+        if (isExpanded) {
+            arrowDown.classList.remove("rotate-180");
+            menu.classList.remove("animate-fadeInScale");
+            menu.classList.add("animate-fadeOutScale");
+            setTimeout(() => {
+                menu.classList.add("hidden");
+                menuButton.setAttribute("aria-expanded", "false");
+            }, 75);
+        } else {
+            menu.classList.remove("hidden", "animate-fadeOutScale");
+            menu.classList.add("animate-fadeInScale");
+            arrowDown.classList.add("rotate-180"); // Assure que le chevron est tourné vers le bas lors de l'ouverture
+            menuButton.setAttribute("aria-expanded", "true");
+        }
     });
-  });
-  
+
+    // Ferme le menu au clic extérieur
+    document.addEventListener("click", (event) => {
+        const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+
+        if (
+            isExpanded &&
+            !menu.contains(event.target) &&
+            event.target !== menuButton
+        ) {
+            arrowDown.classList.remove("rotate-180"); // Remet le chevron à sa position initiale lors de la fermeture
+            menu.classList.remove("animate-fadeInScale");
+            menu.classList.add("animate-fadeOutScale");
+            setTimeout(() => {
+                menu.classList.add("hidden");
+                menuButton.setAttribute("aria-expanded", "false");
+            }, 75);
+        }
+    });
+}
 
   
   

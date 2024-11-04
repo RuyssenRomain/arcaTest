@@ -1,14 +1,21 @@
-{% extends 'layout.twig' %}
+{% extends 'layout.twig' %} {# Surcharge du bloc 'content' pour le contenu
+spécifique à la page d'accueil #} {% block content %}
+<div
+	class=" relative bg-[url('/assets/images/illustrations/accueil-arcadia.webp')] bg-cover bg-center h-screen">
+	<div class=" absolute -bottom-20 z-10 right-0 w-28 h-28 md:-bottom-40 lg:me-8 md:w-64 md:h-64 bg-[url('/assets/images/illustrations/griffes-home.png')] bg-cover bg-center"> 
+	</div>
+	<div
+		class="relative flex flex-col items-center text-md md:text-xl text-center text-white top-[66%] lg:top-[64%]">
+		{#
+		<h1 class="text-6xl font-bold text-white underline text-shadow-black">
+			{{ title }}
+		</h1>
+		#}
+		<h1 class="text-4xl font-bold text-white lg:text-6xl text-shadow-black">
+			Bienvenue à ARCADIA
+		</h1>
+		<p class="lg:w-[31%] w-[65%] md:w-[55%] pt-8 px-auto font-lato">{{ message }}</p>
+	</div>
+</div>
 
-{# Surcharge du bloc 'content' pour le contenu spécifique à la page d'accueil #}
-{% block content %}
-    <div class="pt-[32rem] flex flex-col items-center text-xl text-center text-white">
-        {# <h1 class="text-6xl font-bold text-white underline text-shadow-black ">{{ title }}</h1> #}
-        <h1 class="text-6xl font-bold text-white text-shadow-black ">Bienvenue à ARCADIA</h1>
-        <p class="relative z-0 w-2/4 pt-8 top-2/4">{{ message }}</p>
-
-        {# Div pour l'injection dynamique des données par app.js #}
-        <div id="cards"></div>
-    </div>
-    <div class="w-full bg-slate-700 h-44"><p class="text-center text-white text">test</p></div>
 {% endblock %}

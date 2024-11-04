@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 @layer components {
+ 
+  /*
+ gérer le scroll*/
+ html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+ /* pages d accueil.html  */
+  /* pour le bouton burger */
   .burger {
     @apply relative flex flex-col items-center justify-center border-2 rounded cursor-pointer w-9 h-9;
   }
@@ -38,6 +48,10 @@
     transform: rotate(-45deg);
     top: 50%;
   }
-}
 
+  /* css pour  swipper-slider animals*/
+
+
+
+}
 

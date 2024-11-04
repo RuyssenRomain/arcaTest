@@ -16,6 +16,8 @@
 		<link
 			href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
 			rel="stylesheet" />
+		{# swipper -css #}
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 		<!-- Option 1: Include in HTML -->
 		<link
@@ -39,33 +41,69 @@
 		{% endif %} {% endblock %}
 	</head>
 
-	<body id="top" class="flex flex-col min-h-screen overflow-hidden font-Merri">
+	<body
+		id="top"
+		class="flex flex-col min-h-full font-Merrifont-Merri bg-custom-beige">
 		{# Header commun à toutes les pages - fixe en haut #}
 		<header
-			class="fixed top-0 left-0 flex items-center justify-between w-full px-5 mx-auto text-white shadow-sm h- border-b-1 lg:px-9 bg-black/30 shadow-custom-beige">
-			<nav id="navbar" aria-label="Navigation prinicipale text-xs lg:text-base">
+			class="fixed top-0 left-0 z-50 flex items-center justify-between w-full px-5 mx-auto text-white shadow-sm backdrop-blur-sm h- border-b-1 lg:px-9 bg-black/30 shadow-custom-beige">
+			<nav
+				id="navbar"
+				aria-label="Navigation prinicipale"
+				class="text-xs lg:text-base">
 				<ul
 					class="items-center hidden space-x-4 md:flex lg:space-x-7 text-custom-brown">
 					<li
-						class="px-2 py-2 rounded-lg hover:text-zinc-900 bg-custom-beige hover:bg-green-links">
+						class="px-2 py-2 rounded-lg lg:text-md hover:text-zinc-900 bg-custom-beige hover:bg-green-links">
 						<a href="/">Accueil</a>
 					</li>
 
-					<li class="relative px-2 py-2 text-center rounded-lg bg-custom-beige hover:text-zinc-900 hover:bg-green-links">
-                        <button type="button" id="menu-button" aria-expanded="false" class="flex items-center ">
-                            Habitats
-                            <svg class="w-5 h-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-                            </svg>
-                          </button>
-                        
-                          <ul id="menu-habitats" class="absolute left-0 hidden mt-3 rounded-md shadow-lg bg-custom-beige w-28 ">
-                            <li><a href="/habitats" class="block px-4 py-2 text-sm text-gray-700 hover:text-zinc-900 hover:bg-green-links">Habitats</a></li>
-                            <li><a href="/habitats/savane" class="block px-4 py-2 text-sm text-gray-700 hover:text-zinc-900 hover:bg-green-links">Savane</a></li>
-                            <li><a href="/habitats/jungle" class="block px-4 py-2 text-sm text-gray-700 hover:text-zinc-900 hover:bg-green-links">Jungle</a></li>
-                            <li><a href="/habitats/marais" class="block px-4 py-2 text-sm text-gray-700 hover:text-zinc-900 hover:bg-green-links">Marais</a></li>
-                          </ul>
-                      </li>
+					<li
+						class="relative flex items-center justify-between px-2 py-[6px] lg:py-[8px] text-center rounded-lg bg-custom-beige hover:text-zinc-900 hover:bg-green-links">
+						<button
+							type="button"
+							id="menu-button"
+							aria-expanded="false"
+							class="flex items-center gap-2">
+							Habitats
+							<span class="text-sm rotate-180" id="arrowNav">
+								<i class="bi bi-chevron-down"></i>
+							</span>
+						</button>
+
+						<ul
+							id="menu-habitats"
+							class="absolute left-0 hidden mt-10 rounded-md shadow-lg top-2 bg-custom-beige w-28">
+							<li>
+								<a
+									href="/habitats"
+									class="block px-4 py-2 text-sm text-gray-700 hover:text-zinc-900 hover:bg-green-links"
+									>Habitats</a
+								>
+							</li>
+							<li>
+								<a
+									href="/habitats/savane"
+									class="block px-4 py-2 text-sm text-gray-700 hover:text-zinc-900 hover:bg-green-links"
+									>Savane</a
+								>
+							</li>
+							<li>
+								<a
+									href="/habitats/jungle"
+									class="block px-4 py-2 text-sm text-gray-700 hover:text-zinc-900 hover:bg-green-links"
+									>Jungle</a
+								>
+							</li>
+							<li>
+								<a
+									href="/habitats/marais"
+									class="block px-4 py-2 text-sm text-gray-700 hover:text-zinc-900 hover:bg-green-links"
+									>Marais</a
+								>
+							</li>
+						</ul>
+					</li>
 
 					<li
 						class="px-2 py-2 rounded-lg lg:text-md hover:text-zinc-900 bg-custom-beige hover:bg-green-links">
@@ -107,7 +145,7 @@
 		</header>
 
 		{# Bloc principal pour le contenu spécifique de chaque page #}
-		<main>
+		<main class="flex flex-col w-full">
 			<ul
 				id="toggled-menu"
 				class="fixed z-10 flex flex-col w-2/4 text-white duration-500 shadow-sm sm:w-64 top-24 shadow-slate-700 -left-full md:hidden">
@@ -118,40 +156,53 @@
 						>Accueil
 					</a>
 				</li>
-				<li id="collapseHabitats" class="flex justify-center w-full leading-7">
-					<a
-						href="#Habitats"
-						class="flex justify-between w-4/5 p-2 font-semibold duration-300 rounded-md cursor-pointer hover:text-custom-brown hover:bg-custom-beige/75"
-						>Habitats
+				<li class="flex justify-center">
+					<button
+						type="button"
+						id="collapseHabitats"
+						aria-expanded="false"
+						aria-controls="submenu"
+						class="flex items-center justify-between w-4/5 p-2 font-semibold leading-7 uppercase duration-300 rounded-md cursor-pointer hover:text-custom-brown hover:bg-custom-beige/75">
+						Habitats
 						<span class="text-sm rotate-180" id="arrow">
 							<i class="bi bi-chevron-down"></i>
 						</span>
-					</a>
+					</button>
 				</li>
-				<li
-					id="submenu"
-					class="hidden w-4/5 mx-auto mt-2 text-sm text-center rounded-md shadow-md bg-custom-beige/25 shadow-slate-950">
-					<button></button>
-					<a
-						href="/habitats"
-						class="block p-2 rounded-md cursor-pointer hover:bg-lime-500/25">
-						Tous les habitats</a
-					>
-					<a
-						href="/habitats/Savane"
-						class="block p-2 mt-1 rounded-md cursor-pointer hover:bg-lime-500/25"
-						>Savane</a
-					>
-					<a
-						href="/habitats/jungle"
-						class="block p-2 mt-1 rounded-md cursor-pointer hover:bg-lime-500/25"
-						>Jungle</a
-					>
-					<a
-						href="/habitats/Marais"
-						class="block p-2 mt-1 rounded-md cursor-pointer hover:bg-lime-500/25"
-						>Marais</a
-					>
+				<li>
+					<ul
+						id="submenu"
+						aria-labelledby="collapseHabitats"
+						class="hidden w-4/5 mx-auto mt-2 text-sm text-center rounded-md shadow-md bg-custom-beige/25 shadow-slate-950">
+						<li>
+							<a
+								href="/habitats"
+								class="block p-2 rounded-md cursor-pointer hover:bg-lime-500/25">
+								Tous les habitats</a
+							>
+						</li>
+						<li>
+							<a
+								href="/habitats/Savane"
+								class="block p-2 mt-1 rounded-md cursor-pointer hover:bg-lime-500/25"
+								>Savane</a
+							>
+						</li>
+						<li>
+							<a
+								href="/habitats/jungle"
+								class="block p-2 mt-1 rounded-md cursor-pointer hover:bg-lime-500/25"
+								>Jungle</a
+							>
+						</li>
+						<li>
+							<a
+								href="/habitats/Marais"
+								class="block p-2 mt-1 rounded-md cursor-pointer hover:bg-lime-500/25"
+								>Marais</a
+							>
+						</li>
+					</ul>
 				</li>
 				<li class="flex justify-start w-full">
 					<a
@@ -175,16 +226,217 @@
 					</a>
 				</li>
 			</ul>
-			<section
-				class="w-full bg-[url('/assets/images/illustrations/accueil-arcadia.webp')] bg-cover bg-center h-[900px]">
+			<section class="w-full h-auto">
 				{% block content %} {% endblock %}
 			</section>
+
+			<section
+				id="habitats-presentation"
+				class="flex flex-col items-center w-full h-full px-6 pb-10 text-custom-green">
+				<div class="flex items-center justify-center w-full gap-1 pt-20">
+					<div
+						class="relative bg-[url('/assets/images/logo/tree-logo.png')] bg-cover bg-center w-10 h-10 mb-3">
+						<span
+							class="absolute w-24 h-2 md:w-32 left-1 -bottom-4 md:-bottom-6 text-start bg-custom-green"></span>
+					</div>
+					<h2 class="text-3xl font-semibold text-center md:text-5xl">
+						Nos habitats
+					</h2>
+				</div>
+
+				<div
+					class="flex flex-col flex-wrap items-center justify-center gap-10 mt-20 md:gap-36 md:flex-row">
+					<div
+						class="max-w-sm mt-16 overflow-hidden text-white transition-transform duration-500 ease-in-out border-2 shadow-xl w-72 hover:-translate-y-5 shadow-zinc-700 rounded-2xl bg-custom-green border-custom-green">
+						<img
+							class="object-cover object-center w-full"
+							src="/assets/images/illustrations/jungle.jpg"
+							alt="Sunset in the mountains" />
+						<div class="px-6 py-2">
+							<div class="pt-4 mb-2 text-2xl font-bold text-center">
+								<h3>Jungle</h3>
+							</div>
+						</div>
+						<div class="px-6 pt-3 pb-10 text-center">
+							<button
+								class="w-full p-1 text-lg font-semibold hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green">
+								Découvrir
+							</button>
+						</div>
+					</div>
+					<div
+						class="max-w-sm mt-16 overflow-hidden text-white transition-transform duration-500 ease-in-out border-2 shadow-xl hover:-translate-y-5 shadow-zinc-700 rounded-2xl bg-custom-green w-72 border-custom-green">
+						<img
+							class="object-cover object-center w-full"
+							src="/assets/images/illustrations/Savane-one.jpg"
+							alt="Sunset in the mountains" />
+						<div class="px-6 py-2">
+							<div class="pt-4 mb-2 text-2xl font-bold text-center">
+								<h3>Savane</h3>
+							</div>
+						</div>
+						<div class="px-6 pt-3 pb-10 text-center">
+							<button
+								class="w-full p-1 text-lg font-semibold hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green">
+								Découvrir
+							</button>
+						</div>
+					</div>
+					<div
+						class="max-w-sm mt-16 overflow-hidden text-white transition-transform duration-500 ease-in-out border-2 shadow-xl hover:-translate-y-5 shadow-zinc-700 rounded-2xl bg-custom-green w-72 border-custom-green">
+						<img
+							class="object-cover object-center w-full h-72 md:h-[284px]"
+							src="/assets/images/illustrations/Marais.jpg"
+							alt="Sunset in the mountains" />
+						<div class="px-6 py-2">
+							<div class="pt-4 mb-2 text-2xl font-bold text-center">
+								<h3>Marais</h3>
+							</div>
+						</div>
+						<div class="px-6 pt-3 pb-10 text-center">
+							<button
+								class="w-full p-1 text-lg font-semibold hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green">
+								Découvrir
+							</button>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section
+				id="Animals"
+				class="flex flex-col items-center w-full h-full px-2 mb-20 text-custom-green">
+				<div class="flex items-center justify-center w-full gap-1 pt-20">
+					<div
+						class="relative bg-[url('/assets/images/logo/green-patoune.png')] bg-cover bg-center w-20 h-20 mb-3">
+						<span
+							class="absolute w-24 h-2 md:w-32 left-1 -bottom-4 md:-bottom-6 text-start bg-custom-green"></span>
+					</div>
+					<h2 class="text-3xl font-semibold text-center md:text-5xl">
+						Nos Animaux
+					</h2>
+				</div>
+				<!--swipper-slider animal -->
+				<div class="flex items-center justify-center w-full mt-28 slider-animals">
+					<!-- start-slider -->
+					<div class="w-3/4 md:w-full swiper mySwiper">
+						<div class=" swiper-wrapper">
+							<div class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
+								<img class="h-[200px] xl:h-[300px] w-full object-cover object-center " src="/assets/images/illustrations/Donky.jpg" alt="">
+								<div class="flex flex-col items-center justify-center px-4 text-white text-content">
+									<h3 class="text-2xl font-semibold">Donky</h3>
+									<p class="py-3 text-center description-animals">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi suscipit,.							
+									</p>
+									<button class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green"><a href="/Animals/Donky">Découvrir</a></button>
+								</div>
+							</div>
+						
+							<!-- end-slider -->
+							<!-- start-slider -->
+							<div class="h-auto pb-5 overflow-hidden border-2 shadow-xl rounded-3xl content swiper-slide w-72 border-custom-brown bg-custom-green">
+								<img class="h-[200px] xl:h-[300px] w-full object-cover object-center " src="/assets/images/illustrations/TikTak.jpg" alt="">
+								<div class="flex flex-col items-center justify-center px-4 text-white text-content">
+									<h3 class="text-2xl font-semibold">TikTak</h3>
+									<p class="py-3 text-center description-animals">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi suscipit,.							
+									</p>
+									<button class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green"><a href="/Animals/TikTak">Découvrir</a></button>
+								</div>
+							</div>
+							<!-- end-slider -->
+							<!-- start-slider -->
+							<div class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
+								<img class="h-[200px] xl:h-[300px] w-full object-cover object-center " src="/assets/images/illustrations/girafle.jpg" alt="">
+								<div class="flex flex-col items-center justify-center px-4 text-white text-content">
+									<h3 class="text-2xl font-semibold">Flip Flap</h3>
+									<p class="py-3 text-center description-animals">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi suscipit,.							
+									</p>
+									<button class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green"><a href="/Animals/Flip Flap">Découvrir</a></button>
+								</div>
+							</div>
+							<!-- end-slider -->
+							<!-- start-slider -->
+							<div class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
+								<img class="h-[200px] xl:h-[300px] w-full object-cover object-center " src="/assets/images/illustrations/Dumbo.jpg" alt="">
+								<div class="flex flex-col items-center justify-center px-4 text-white text-content">
+									<h3 class="text-2xl font-semibold">Dumbo</h3>
+									<p class="py-3 text-center description-animals">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi suscipit,.							
+									</p>
+									<button class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green"><a href="/Animals/Dumbo">Découvrir</a></button>
+								</div>
+							</div>
+							<!-- end-slider -->
+							<!-- start-slider -->
+							<div class="h-auto pb-5 overflow-hidden border-2 shadow-xl rounded-3xl content swiper-slide w-72 border-custom-brown bg-custom-green">
+								<img class="h-[200px] xl:h-[300px] w-full object-cover object-center " src="/assets/images/illustrations/simba.jpg" alt="">
+								<div class="flex flex-col items-center justify-center px-4 py-4 text-white text-content">
+									<h3 class="text-2xl font-semibold">Simba</h3>
+									<p class="py-3 text-center description-animals">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi suscipit,.							
+									</p>
+									<button class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green"><a href="/Animals/Simba">Découvrir</a></button>
+								</div>
+							</div>
+							<!-- end-slider -->
+							<!-- start-slider -->
+							<div class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
+								<img class="h-[200px] xl:h-[300px] w-full object-cover object-center " src="/assets/images/illustrations/tiger.jpg" alt="">
+								<div class="flex flex-col items-center justify-center px-4 text-white text-content">
+									<h3 class="text-2xl font-semibold">Tiger</h3>
+									<p class="py-3 text-center description-animals">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi suscipit,.							
+									</p>
+									<button class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green"><a href="/Animals/Tiger">Découvrir</a></button>
+								</div>
+							</div>
+							<!-- end-slider -->
+							<!-- start-slider -->
+							<div class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
+								<img class="h-[200px] xl:h-[300px] w-full object-cover object-center " src="/assets/images/illustrations/Jag.jpg" alt="">
+								<div class="flex flex-col items-center justify-center px-4 text-white text-content">
+									<h3 class="text-2xl font-semibold">Jag</h3>
+									<p class="py-3 text-center description-animals">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi suscipit,.							
+									</p>
+									<button class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green"><a href="/Animals/Jag">Découvrir</a></button>
+								</div>
+							</div>
+							<div class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
+								<img class="h-[200px] xl:h-[300px] w-full object-cover object-center " src="/assets/images/illustrations/hypopo.jpg" alt="">
+								<div class="flex flex-col items-center justify-center px-4 text-white text-content">
+									<h3 class="text-2xl font-semibold">Splatch</h3>
+									<p class="py-3 text-center description-animals">le petit hypopo							
+									</p>
+									<button class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green"><a href="/Animals/Splatch">Découvrir</a></button>
+								</div>
+							</div>
+
+						</div>
+						<!--pagination-->
+						<div class="swiper-pagination"></div>
+						<!--navigation bouttons-->
+						<div class="swiper-button-next"></div>
+						<div class="swiper-button-prev"></div>
+					</div>
+				</div>
+			</section>
+			<section id="Services" class="flex flex-col items-center w-full h-full px-2 mb-20 text-custom-green">
+				<div class="flex items-center justify-center w-full gap-1 pt-20">
+					<div
+						class="relative bg-[url('/assets/images/logo/logo-services.png')] bg-cover bg-center w-20 h-20 mb-3">
+						<span
+							class="absolute w-24 h-2 md:w-32 left-1 -bottom-4 md:-bottom-6 text-start bg-custom-green"></span>
+					</div>
+					<h2 class="text-3xl font-semibold text-center md:text-5xl">
+						Nos services
+					</h2>
+				</div>
+			</section>
+				<!-- end -slider__animals -->
 		</main>
 
 		{# Footer commun à toutes les pages - fixe en bas #}
 		<footer
-			class="bottom-0 left-0 w-full p-4 bg-custom-green text-custom-beige">
+			class="relative bottom-0 left-0 w-full h-auto p-4 bg-custom-green text-custom-beige">
 			<p>&copy; 2024 Zoo Arcadia</p>
 		</footer>
+		<!-- Swiper JS -->
+
+		<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	</body>
 </html>

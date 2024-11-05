@@ -13,6 +13,7 @@ module.exports = {
         'custom-brown': '#5A4836',
         'custom-green': '#182D20',
         'green-links': '#B4D0BD',
+        'custom-white': '#F5F5F5',
           // Ajoute la couleur personnalisée ici
       },
       fontFamily: {

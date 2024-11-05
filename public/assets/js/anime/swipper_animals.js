@@ -1,9 +1,12 @@
+// import Swiper, { Navigation, Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import Swiper from 'swiper/bundle';
 
 const swiper = new Swiper(".mySwiper", {
+ 
   effect: "coverflow",
   grabCursor: true,
   loop: true,
@@ -25,7 +28,7 @@ const swiper = new Swiper(".mySwiper", {
       coverflowEffect: {
         rotate: 100,        // Angle de rotation des slides
         stretch: 0,         // Distance entre les slides
-        depth: 100,         // Profondeur pour un effet doux
+        depth: 0,         // Profondeur pour un effet doux
         modifier: 1.2,      // Ajustement de la perspective
         slideShadows: false // Pas d'ombres pour alléger sur mobile
       },

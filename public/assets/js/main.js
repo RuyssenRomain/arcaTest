@@ -1,11 +1,20 @@
-// Import du fichier CSS Tailwind
+// Import du fichier CSS Tailwind et des scripts nécessaires
 import "../css/tailwind.css";
 import "../css/main.css";
 
-// Importer les fonctionnalités de app.js pour les requêtes API et l'affichage
-import "./app.js";
-import "./anime/burger.js";
-import "./anime/swipper_animals.js"
+// Importation de Swiper uniquement une fois pour l’ensemble des fichiers
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+// Importer les Swipers indépendamment
+import './anime/swipper_animals.js';
+import './anime/swipper_device.js';
+
+// Autres scripts
+import './app.js';
+import './anime/burger.js';
+
 
 // Autres scripts globaux ou spécifiques peuvent être ajoutés ici si nécessaire
 console.log("Main.js chargé avec succès !");

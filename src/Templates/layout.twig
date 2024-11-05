@@ -16,10 +16,11 @@
 		<link
 			href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
 			rel="stylesheet" />
-		{# swipper -css #}
-			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+		<!--=============swipper -css====================-->
+				<!--== import via cdn en cas de problème ==-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-		<!-- Option 1: Include in HTML -->
+		<!--====================== BOOTSTRAP__LINKS =============================-->
 		<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
@@ -304,7 +305,7 @@
 			</section>
 			<section
 				id="Animals"
-				class="flex flex-col items-center w-full h-full px-2 mb-20 text-custom-green">
+				class="flex flex-col items-center justify-center w-full h-full mb-20 md:px-2 text-custom-green">
 				<div class="flex items-center justify-center w-full gap-1 pt-20">
 					<div
 						class="relative bg-[url('/assets/images/logo/green-patoune.png')] bg-cover bg-center w-20 h-20 mb-3">
@@ -316,96 +317,175 @@
 					</h2>
 				</div>
 				<!--swipper-slider animal -->
-				<div class="flex items-center justify-center w-full mt-28 slider-animals">
+				<div
+					class="flex items-center justify-center w-full px-3 mt-28 slider-animals">
 					<!-- start-slider -->
-					<div class="w-3/4 md:w-full swiper mySwiper">
-						<div class=" swiper-wrapper">
-							<div class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
-								<img class="h-[200px] xl:h-[300px] w-full object-cover object-center " src="/assets/images/illustrations/Donky.jpg" alt="">
-								<div class="flex flex-col items-center justify-center px-4 text-white text-content">
+					<div class="w-full sm:w-3/4 md:w-full swiper mySwiper">
+						<div class="swiper-wrapper">
+							<div
+								class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
+								<img
+									class="h-[200px] xl:h-[300px] w-full object-cover object-center"
+									src="/assets/images/illustrations/Donky.jpg"
+									alt="" />
+								<div
+									class="flex flex-col items-center justify-center px-4 text-white text-content">
 									<h3 class="text-2xl font-semibold">Donky</h3>
-									<p class="py-3 text-center description-animals">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi suscipit,.							
+									<p class="py-3 text-center description-animals">
+										Lorem ipsum dolor sit amet consectetur adipisicing elit.
+										Vitae excepturi suscipit,.
 									</p>
-									<button class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green"><a href="/Animals/Donky">Découvrir</a></button>
-								</div>
-							</div>
-						
-							<!-- end-slider -->
-							<!-- start-slider -->
-							<div class="h-auto pb-5 overflow-hidden border-2 shadow-xl rounded-3xl content swiper-slide w-72 border-custom-brown bg-custom-green">
-								<img class="h-[200px] xl:h-[300px] w-full object-cover object-center " src="/assets/images/illustrations/TikTak.jpg" alt="">
-								<div class="flex flex-col items-center justify-center px-4 text-white text-content">
-									<h3 class="text-2xl font-semibold">TikTak</h3>
-									<p class="py-3 text-center description-animals">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi suscipit,.							
-									</p>
-									<button class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green"><a href="/Animals/TikTak">Découvrir</a></button>
-								</div>
-							</div>
-							<!-- end-slider -->
-							<!-- start-slider -->
-							<div class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
-								<img class="h-[200px] xl:h-[300px] w-full object-cover object-center " src="/assets/images/illustrations/girafle.jpg" alt="">
-								<div class="flex flex-col items-center justify-center px-4 text-white text-content">
-									<h3 class="text-2xl font-semibold">Flip Flap</h3>
-									<p class="py-3 text-center description-animals">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi suscipit,.							
-									</p>
-									<button class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green"><a href="/Animals/Flip Flap">Découvrir</a></button>
-								</div>
-							</div>
-							<!-- end-slider -->
-							<!-- start-slider -->
-							<div class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
-								<img class="h-[200px] xl:h-[300px] w-full object-cover object-center " src="/assets/images/illustrations/Dumbo.jpg" alt="">
-								<div class="flex flex-col items-center justify-center px-4 text-white text-content">
-									<h3 class="text-2xl font-semibold">Dumbo</h3>
-									<p class="py-3 text-center description-animals">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi suscipit,.							
-									</p>
-									<button class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green"><a href="/Animals/Dumbo">Découvrir</a></button>
-								</div>
-							</div>
-							<!-- end-slider -->
-							<!-- start-slider -->
-							<div class="h-auto pb-5 overflow-hidden border-2 shadow-xl rounded-3xl content swiper-slide w-72 border-custom-brown bg-custom-green">
-								<img class="h-[200px] xl:h-[300px] w-full object-cover object-center " src="/assets/images/illustrations/simba.jpg" alt="">
-								<div class="flex flex-col items-center justify-center px-4 py-4 text-white text-content">
-									<h3 class="text-2xl font-semibold">Simba</h3>
-									<p class="py-3 text-center description-animals">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi suscipit,.							
-									</p>
-									<button class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green"><a href="/Animals/Simba">Découvrir</a></button>
-								</div>
-							</div>
-							<!-- end-slider -->
-							<!-- start-slider -->
-							<div class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
-								<img class="h-[200px] xl:h-[300px] w-full object-cover object-center " src="/assets/images/illustrations/tiger.jpg" alt="">
-								<div class="flex flex-col items-center justify-center px-4 text-white text-content">
-									<h3 class="text-2xl font-semibold">Tiger</h3>
-									<p class="py-3 text-center description-animals">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi suscipit,.							
-									</p>
-									<button class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green"><a href="/Animals/Tiger">Découvrir</a></button>
-								</div>
-							</div>
-							<!-- end-slider -->
-							<!-- start-slider -->
-							<div class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
-								<img class="h-[200px] xl:h-[300px] w-full object-cover object-center " src="/assets/images/illustrations/Jag.jpg" alt="">
-								<div class="flex flex-col items-center justify-center px-4 text-white text-content">
-									<h3 class="text-2xl font-semibold">Jag</h3>
-									<p class="py-3 text-center description-animals">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi suscipit,.							
-									</p>
-									<button class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green"><a href="/Animals/Jag">Découvrir</a></button>
-								</div>
-							</div>
-							<div class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
-								<img class="h-[200px] xl:h-[300px] w-full object-cover object-center " src="/assets/images/illustrations/hypopo.jpg" alt="">
-								<div class="flex flex-col items-center justify-center px-4 text-white text-content">
-									<h3 class="text-2xl font-semibold">Splatch</h3>
-									<p class="py-3 text-center description-animals">le petit hypopo							
-									</p>
-									<button class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green"><a href="/Animals/Splatch">Découvrir</a></button>
+									<button
+										class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green">
+										<a href="/Animals/Donky">Découvrir</a>
+									</button>
 								</div>
 							</div>
 
+							<!-- end-slider -->
+							<!-- start-slider -->
+							<div
+								class="h-auto pb-5 overflow-hidden border-2 shadow-xl rounded-3xl content swiper-slide w-72 border-custom-brown bg-custom-green">
+								<img
+									class="h-[200px] xl:h-[300px] w-full object-cover object-center"
+									src="/assets/images/illustrations/TikTak.jpg"
+									alt="" />
+								<div
+									class="flex flex-col items-center justify-center px-4 text-white text-content">
+									<h3 class="text-2xl font-semibold">TikTak</h3>
+									<p class="py-3 text-center description-animals">
+										Lorem ipsum dolor sit amet consectetur adipisicing elit.
+										Vitae excepturi suscipit,.
+									</p>
+									<button
+										class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green">
+										<a href="/Animals/TikTak">Découvrir</a>
+									</button>
+								</div>
+							</div>
+							<!-- end-slider -->
+							<!-- start-slider -->
+							<div
+								class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
+								<img
+									class="h-[200px] xl:h-[300px] w-full object-cover object-center"
+									src="/assets/images/illustrations/girafle.jpg"
+									alt="" />
+								<div
+									class="flex flex-col items-center justify-center px-4 text-white text-content">
+									<h3 class="text-2xl font-semibold">Flip Flap</h3>
+									<p class="py-3 text-center description-animals">
+										Lorem ipsum dolor sit amet consectetur adipisicing elit.
+										Vitae excepturi suscipit,.
+									</p>
+									<button
+										class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green">
+										<a href="/Animals/Flip Flap">Découvrir</a>
+									</button>
+								</div>
+							</div>
+							<!-- end-slider -->
+							<!-- start-slider -->
+							<div
+								class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
+								<img
+									class="h-[200px] xl:h-[300px] w-full object-cover object-center"
+									src="/assets/images/illustrations/Dumbo.jpg"
+									alt="" />
+								<div
+									class="flex flex-col items-center justify-center px-4 text-white text-content">
+									<h3 class="text-2xl font-semibold">Dumbo</h3>
+									<p class="py-3 text-center description-animals">
+										Lorem ipsum dolor sit amet consectetur adipisicing elit.
+										Vitae excepturi suscipit,.
+									</p>
+									<button
+										class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green">
+										<a href="/Animals/Dumbo">Découvrir</a>
+									</button>
+								</div>
+							</div>
+							<!-- end-slider -->
+							<!-- start-slider -->
+							<div
+								class="h-auto pb-5 overflow-hidden border-2 shadow-xl rounded-3xl content swiper-slide w-72 border-custom-brown bg-custom-green">
+								<img
+									class="h-[200px] xl:h-[300px] w-full object-cover object-center"
+									src="/assets/images/illustrations/simba.jpg"
+									alt="" />
+								<div
+									class="flex flex-col items-center justify-center px-4 py-4 text-white text-content">
+									<h3 class="text-2xl font-semibold">Simba</h3>
+									<p class="py-3 text-center description-animals">
+										Lorem ipsum dolor sit amet consectetur adipisicing elit.
+										Vitae excepturi suscipit,.
+									</p>
+									<button
+										class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green">
+										<a href="/Animals/Simba">Découvrir</a>
+									</button>
+								</div>
+							</div>
+							<!-- end-slider -->
+							<!-- start-slider -->
+							<div
+								class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
+								<img
+									class="h-[200px] xl:h-[300px] w-full object-cover object-center"
+									src="/assets/images/illustrations/tiger.jpg"
+									alt="" />
+								<div
+									class="flex flex-col items-center justify-center px-4 text-white text-content">
+									<h3 class="text-2xl font-semibold">Tiger</h3>
+									<p class="py-3 text-center description-animals">
+										Lorem ipsum dolor sit amet consectetur adipisicing elit.
+										Vitae excepturi suscipit,.
+									</p>
+									<button
+										class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green">
+										<a href="/Animals/Tiger">Découvrir</a>
+									</button>
+								</div>
+							</div>
+							<!-- end-slider -->
+							<!-- start-slider -->
+							<div
+								class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
+								<img
+									class="h-[200px] xl:h-[300px] w-full object-cover object-center"
+									src="/assets/images/illustrations/Jag.jpg"
+									alt="" />
+								<div
+									class="flex flex-col items-center justify-center px-4 text-white text-content">
+									<h3 class="text-2xl font-semibold">Jag</h3>
+									<p class="py-3 text-center description-animals">
+										Lorem ipsum dolor sit amet consectetur adipisicing elit.
+										Vitae excepturi suscipit,.
+									</p>
+									<button
+										class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green">
+										<a href="/Animals/Jag">Découvrir</a>
+									</button>
+								</div>
+							</div>
+							<div
+								class="h-auto pb-5 overflow-hidden border-2 shadow-xl swiper-slide rounded-3xl content w-72 border-custom-brown bg-custom-green">
+								<img
+									class="h-[200px] xl:h-[300px] w-full object-cover object-center"
+									src="/assets/images/illustrations/hypopo.jpg"
+									alt="" />
+								<div
+									class="flex flex-col items-center justify-center px-4 text-white text-content">
+									<h3 class="text-2xl font-semibold">Splatch</h3>
+									<p class="py-3 text-center description-animals">
+										le petit hypopo
+									</p>
+									<button
+										class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green">
+										<a href="/Animals/Splatch">Découvrir</a>
+									</button>
+								</div>
+							</div>
 						</div>
 						<!--pagination-->
 						<div class="swiper-pagination"></div>
@@ -414,8 +494,13 @@
 						<div class="swiper-button-prev"></div>
 					</div>
 				</div>
+				<!-- end -slider__animals -->
 			</section>
-			<section id="Services" class="flex flex-col items-center w-full h-full px-2 mb-20 text-custom-green">
+
+			<!--start____section service-->
+			<section
+				id="Services"
+				class="flex flex-col items-center w-full h-full px-3 mb-20 text-custom-green">
 				<div class="flex items-center justify-center w-full gap-1 pt-20">
 					<div
 						class="relative bg-[url('/assets/images/logo/logo-services.png')] bg-cover bg-center w-20 h-20 mb-3">
@@ -426,8 +511,640 @@
 						Nos services
 					</h2>
 				</div>
+				<!--start____cards service desktop-->
+				<div
+					class="flex-col flex-wrap items-center justify-center hidden mt-20 md: container__device lg:flex lg:flex-row lg:gap-20">
+					<div
+						class="relative max-w-sm mt-12 overflow-hidden rounded-lg shadow-lg bg-custom-brown group">
+						<img
+							class="object-cover object-center w-full h-[530px]"
+							src="/assets/images/illustrations/visiteGuidé.png"
+							alt="Sunset in the mountains" />
+						<div
+							class="absolute z-10 px-6 text-center transition-all duration-500 ease-in-out translate-y-full group-hover:bg-black/50 group-hover:py-4 text-custom-white group-hover:-translate-y-full">
+							<div class="mb-2 text-2xl font-bold">Éco Explorateur</div>
+							<p class="text-base font-lato">
+								Partez à l'aventure avec Looping et Flip Flap, nos experts en
+								exploration hilarante !
+							</p>
+							<div
+								class="flex items-center justify-center px-6 pt-6 text-custom-green">
+								<button
+									class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green">
+									<a href="/services/Explorateur">Découvrir</a>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div
+						class="relative max-w-sm mt-12 overflow-hidden rounded-lg shadow-lg bg-custom-brown group">
+						<img
+							class="object-cover object-center w-full h-[530px]"
+							src="/assets/images/illustrations/visitTrain.png"
+							alt="Sunset in the mountains" />
+						<div
+							class="absolute z-10 px-6 text-center transition-all duration-500 ease-in-out translate-y-full group-hover:bg-black/50 group-hover:py-4 text-custom-white group-hover:-translate-y-full">
+							<div class="mb-2 text-2xl font-bold">Safari Express</div>
+							<p class="text-base font-lato">
+								Montez à bord du Safari Express pour un voyage sauvage à travers
+								Arcadia Zoo !
+							</p>
+							<div
+								class="flex items-center justify-center px-6 pt-6 text-custom-green">
+								<button
+									class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green">
+									<a href="/services/Safari">Découvrir</a>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div
+						class="relative max-w-sm mt-12 overflow-hidden rounded-lg shadow-lg bg-custom-brown group">
+						<img
+							class="object-cover object-center w-full h-[530px]"
+							src="/assets/images/illustrations/resto.png"
+							alt="Sunset in the mountains" />
+						<div
+							class="absolute z-10 w-full px-6 text-center transition-all duration-500 ease-in-out translate-y-full group-hover:bg-black/50 group-hover:py-4 text-custom-white group-hover:-translate-y-full">
+							<div class="mb-2 text-2xl font-bold">L'oasis des saveurs</div>
+							<p class="text-base font-lato">une experience culinaire unique</p>
+							<div
+								class="flex items-center justify-center px-6 pt-6 text-custom-green">
+								<button
+									class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green">
+									<a href="/services/Resto">Découvrir</a>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--End____card-service-desktop-->
+				<!--start____cards-service tablettes-mobile-->
+				<div
+					class="flex flex-col flex-wrap items-center justify-center mt-20 container__device lg:hidden">
+					<div
+						class="mt-12 overflow-hidden rounded-lg shadow-lg max-w-72 bg-custom-brown">
+						<img
+							class="object-center w-full object-cover h-[322px]"
+							src="/assets/images/illustrations/visiteGuidé.png"
+							alt="Sunset in the mountains" />
+						<div class="px-6 py-4 text-center text-custom-white">
+							<div class="mb-2 text-2xl font-bold">Éco Explorateur</div>
+							<p class="text-base font-lato">
+								Partez à l'aventure avec Looping et Flip Flap, nos experts en
+								exploration hilarante !
+							</p>
+						</div>
+						<div class="flex items-center justify-center px-6 pt-4 pb-5">
+							<button
+								class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green">
+								<a href="/services/Explorateur">Découvrir</a>
+							</button>
+						</div>
+					</div>
+					<div
+						class="mt-12 overflow-hidden rounded-lg shadow-lg max-w-72 lg:w-96 bg-custom-brown">
+						<img
+							class="object-center w-full object-cover h-[322px]"
+							src="/assets/images/illustrations/visitTrain.png"
+							alt="Sunset in the mountains" />
+						<div class="px-6 py-4 text-center text-custom-white">
+							<div class="mb-2 text-2xl font-bold">Safari Express</div>
+							<p class="text-base font-lato">
+								Montez à bord du Safari Express pour un voyage sauvage à travers
+								Arcadia Zoo !
+							</p>
+						</div>
+						<div class="flex items-center justify-center px-6 pt-4 pb-5">
+							<button
+								class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green">
+								<a href="/services/Safari">Découvrir</a>
+							</button>
+						</div>
+					</div>
+					<div
+						class="mt-12 overflow-hidden rounded-lg shadow-lg max-w-72 bg-custom-brown">
+						<img
+							class="object-center w-full h-[322px]"
+							src="/assets/images/illustrations/resto.png"
+							alt="Sunset in the mountains" />
+						<div class="w-full px-6 py-4 text-center text-custom-white">
+							<div class="mb-2 text-2xl font-bold">L'oasis des saveurs</div>
+							<p class="text-base font-lato">une experience culinaire unique</p>
+						</div>
+						<div class="flex items-center justify-center px-6 pt-4 pb-5">
+							<button
+								class="w-40 p-1 text-lg font-semibold border-2 border-custom-brown/50 hover:bg-green-links rounded-2xl bg-custom-beige text-custom-green">
+								<a href="/services/Resto">Découvrir</a>
+							</button>
+						</div>
+					</div>
+				</div>
+				<!--End____cards-service tablettes-mobile-->
 			</section>
-				<!-- end -slider__animals -->
+			<!--END____Section-service -->
+			<!--start____Section-Avis -->
+			<section
+				id="avis"
+				class="flex flex-col items-center w-full h-full py-16 text-custom-green ">
+				<div class="flex items-center justify-center w-full gap-5">
+					<div
+						class="relative bg-[url('/assets/images/logo/Avis.png')] bg-cover bg-center w-20 h-20 mb-3">
+						<span
+							class="absolute w-24 h-2 md:w-32 left-1 -bottom-4 md:-bottom-6 text-start bg-custom-green"></span>
+					</div>
+					<h2 class="text-3xl font-semibold text-center md:text-5xl">Avis</h2>
+				</div>
+				<div class="mt-5 text-lg text-center font-lato lg:text-3xl">
+					<p>Partagez vos avis, pour un zoo meilleur !</p>
+				</div>
+
+		<!--============  Start__SLIDER__DEVICE  ==================-->
+
+				{# <div class="card__container swiper mySwiper_device">
+					<div class=" card__content">
+					   <div class=" swiper-wrapper">
+
+		<!--=================  start card__device   =============================-->				
+						  <article class="mr-5 rounded-lg card__article swiper-slide w-72 md:w-80">
+							 <div class="card__image">
+								<img src="assets/images/illustrations/avatar-1.png" alt="image" class="card__img">
+								<div class="card__shadow"></div>
+							 </div>
+			  
+							 <div class="card__data">
+								<h3 class="card__name">Kell Dawx</h3>
+								<p class="pb-5 text-white card__description">
+								   Passionate about development and design, 
+								   I carry out projects at the request of users.
+								</p>
+			  
+								<a href="#" class="card__button">View More</a>
+							 </div>
+						  </article>
+
+		<!--=================  END__ card__device   =============================-->				
+		<!--=================  start__ card__device   =============================-->				
+
+						  <article class="mr-5 card__article swiper-slide">
+							 <div class="card__image">
+								<img src="assets/images/illustrations/avatar-2.png" alt="image" class="card__img">
+								<div class="card__shadow"></div>
+							 </div>
+			  
+							 <div class="card__data">
+								<h3 class="card__name">Lotw Fox</h3>
+								<p class="pb-5 card__description">
+								   Passionate about development and design, 
+								   I carry out projects at the request of users.
+								</p>
+			  
+								<a href="#" class="card__button">View More</a>
+							 </div>
+						  </article>
+			  
+						  
+		<!--=================  END__ card__device   =============================-->				
+		<!--=================  start__ card__device   =============================-->	
+
+						  <article class="mr-5 card__article swiper-slide">
+							 <div class="card__image">
+								<img src="assets/images/illustrations/avatar-3.png" alt="image" class="card__img">
+								<div class="card__shadow"></div>
+							 </div>
+			  
+							 <div class="card__data">
+								<h3 class="card__name">Sara Mit</h3>
+								<p class="pb-5 card__description">
+								   Passionate about development and design, 
+								   I carry out projects at the request of users.
+								</p>
+			  
+								<a href="#" class="card__button">View More</a>
+							 </div>
+						  </article>
+
+						  
+		<!--=================  END__ card__device   =============================-->				
+		<!--=================  start__ card__device   =============================-->	
+
+			  
+						  <article class="mr-5 card__article swiper-slide">
+							 <div class="card__image">
+								<img src="assets/images/illustrations/avatar-4.png" alt="image" class="card__img">
+								<div class="card__shadow"></div>
+							 </div>
+			  
+							 <div class="card__data">
+								<h3 class="card__name">Jenny Wert</h3>
+								<p class="pb-5 card__description">
+								   Passionate about development and design, 
+								   I carry out projects at the request of users.
+								</p>
+			  
+								<a href="#" class="card__button">View More</a>
+							 </div>
+						  </article>
+
+						  
+		<!--=================  END__ card__device   =============================-->				
+		<!--=================  start__ card__device   =============================-->	
+		
+						  <article class="mr-5 card__article swiper-slide">
+							 <div class="card__image">
+								<img src="assets/images/illustrations/avatar-5.png" alt="image" class="card__img">
+								<div class="card__shadow"></div>
+							 </div>
+			  
+							 <div class="card__data">
+								<h3 class="card__name">Lexa Kin</h3>
+								<p class="pb-5 card__description">
+								   Passionate about development and design, 
+								   I carry out projects at the request of users.
+								</p>
+			  
+								<a href="#" class="card__button">View More</a>
+							 </div>
+						  </article>
+						  
+		<!--=================  END__ card__device   =============================-->
+					   </div>
+					</div>
+		
+					<!-- Navigation buttons -->
+					<div class="swiper-button-next_device">
+					
+					</div>
+					
+					<div class="swiper-button-prev_device">
+						
+					</div>
+		
+					<!-- Pagination -->
+					<div class="swiper-pagination_device"></div>
+				 </div> #}
+
+
+
+				 <div class="max-w-xs mt-5 left-3 swiper mySwiper_device">
+					 <div class="swiper-wrapper">
+						<!-- Slides ici -->
+												<!--=================  start card__device   =============================-->				
+												<div class="mr-6 rounded-lg card__article swiper-slide">
+													<div class="card__image">
+													   <img src="assets/images/illustrations/avatar-1.png" alt="image" class="card__img">
+													   <div class="card__shadow"></div>
+													</div>
+									 
+													<div class="card__data">
+													   <h3 class="card__name">Kell Dawx</h3>
+													   <p class="pb-5 text-white card__description">
+														  Passionate about development and design, 
+														  I carry out projects at the request of users.
+													   </p>
+									 
+													   <a href="#" class="card__button">View More</a>
+													</div>
+												 </div>
+						
+							   <!--=================  END__ card__device ===================-->
+												<!--=================  start card__device   =============================-->				
+												<div class="mr-5 rounded-lg card__article swiper-slide">
+													<div class="card__image">
+													   <img src="assets/images/illustrations/avatar-1.png" alt="image" class="card__img">
+													   <div class="card__shadow"></div>
+													</div>
+									 
+													<div class="card__data">
+													   <h3 class="card__name">Kell Dawx</h3>
+													   <p class="pb-5 text-white card__description">
+														  Passionate about development and design, 
+														  I carry out projects at the request of users.
+													   </p>
+									 
+													   <a href="#" class="card__button">View More</a>
+													</div>
+												 </div>
+						
+							   <!--=================  END__ card__device ===================-->
+												<!--=================  start card__device   =============================-->				
+												<div class="mr-5 rounded-lg card__article swiper-slide ">
+													<div class="card__image">
+													   <img src="assets/images/illustrations/avatar-1.png" alt="image" class="card__img">
+													   <div class="card__shadow"></div>
+													</div>
+									 
+													<div class="card__data">
+													   <h3 class="card__name">Kell Dawx</h3>
+													   <p class="pb-5 text-white card__description">
+														  Passionate about development and design, 
+														  I carry out projects at the request of users.
+													   </p>
+									 
+													   <a href="#" class="card__button">View More</a>
+													</div>
+												 </div>
+						
+							   <!--=================  END__ card__device ===================-->
+					</div>
+					<!-- Boutons de navigation -->
+					<div class="w-[30px] z-10  absolute top-2/4 right-5 swiper-button-next_device h-[30px]  bg-sky-500 text-blue-500"></div>
+					<div class=" w-[30px] absolute top-2/4 left-0  swiper-button-prev_device z-10 h-[30px] text-green  bg-sky-500 text-blue-500"></div>
+					<!-- Pagination -->
+					<div class="text-center swiper-pagination_device"></div>
+				</div>
+				
+
+
+
+
+
+
+
+
+
+
+
+
+				{# <!--Start__swipper-slider device -->
+				<div
+					class="relative flex items-center justify-center w-full mt-16 slider-device">
+					<!-- start-slider -->
+					<div class="swiper_service mySwiper_device">
+						<div class="flex justify-center swiper-wrapper">
+							<!--start_card-slider_device-->
+							<div class="flex flex-col items-center w-full p-4 mx-2 font-light border rounded-lg shadow-md swiper-slide  max-w-xs sm:w-[500px] bg-custom-green border-custom-brown text-custom-white">
+									<div class="flex w-full h-full ">
+										<div class="text-4xl ">
+											<span>
+												<i class="bi bi-person-circle"></i>
+											</span>
+										</div>
+										<div
+											class="flex items-center justify-between w-full ">
+											<div class="pl-4">
+												<div class="flex flex-col pt-2">
+													<h4 class="text-sm font-bold text-gray-600 uppercase ">
+														test--1.
+													</h4>
+													<div class="flex-row items-center justify-center mb-5">
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+													</div>
+												</div>
+											</div>
+											<p class="relative text-xs bottom-5 right-2">22/05/2024</p>
+										</div>
+									</div>
+									<div class="w-full pb-3 ">
+										<p class="text-sm leading-tight text-center">
+											<span
+												class="mr-1 text-lg italic font-bold leading-none text-center text-custom-white"
+												>"</span
+											>
+											Lorem ipsum dolor sit amet consectetur adipisicing
+											<span
+												class="ml-1 text-lg italic font-bold leading-none text-custom-white"
+												>"</span
+											>
+										</p>
+									</div>
+								</div>
+							<!--End_card-slider_device-->
+							<!--Start_card-slider_device-->
+
+							<div class="flex flex-col items-center w-full p-4 mx-2 font-light border rounded-lg shadow-md swiper-slide max-w-xs sm:w-[500px]  bg-custom-green border-custom-brown text-custom-white">
+									<div class="flex w-full h-full ">
+										<div class="text-4xl ">
+											<span>
+												<i class="bi bi-person-circle"></i>
+											</span>
+										</div>
+										<div
+											class="flex items-center justify-between w-full ">
+											<div class="pl-4">
+												<div class="flex flex-col pt-2">
+													<h4 class="text-sm font-bold text-gray-600 uppercase ">
+														test--2.
+													</h4>
+													<div class="flex-row items-center justify-center mb-5">
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+													</div>
+												</div>
+											</div>
+											<p class="relative text-xs bottom-5 right-2">22/05/2024</p>
+										</div>
+									</div>
+									<div class="w-full pb-3 ">
+										<p class="text-sm leading-tight text-center">
+											<span
+												class="mr-1 text-lg italic font-bold leading-none text-center text-custom-white"
+												>"</span
+											>
+											Lorem ipsum dolor sit amet consectetur adipisicing
+											<span
+												class="ml-1 text-lg italic font-bold leading-none text-custom-white"
+												>"</span
+											>
+										</p>
+									</div>
+								</div>
+							<!--End_card-slider_device-->
+							<!--Start_card-slider_device-->
+
+							<div class="flex flex-col items-center w-full p-4 mx-2 font-light  max-w-xs sm:w-[500px] border rounded-lg shadow-md swiper-slide  bg-custom-green border-custom-brown text-custom-white">
+									<div class="flex w-full h-full ">
+										<div class="text-4xl ">
+											<span>
+												<i class="bi bi-person-circle"></i>
+											</span>
+										</div>
+										<div
+											class="flex items-center justify-between w-full ">
+											<div class="pl-4">
+												<div class="flex flex-col pt-2">
+													<h4 class="text-sm font-bold text-gray-600 uppercase ">
+														test--3.
+													</h4>
+													<div class="flex-row items-center justify-center mb-5">
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+													</div>
+												</div>
+											</div>
+											<p class="relative text-xs bottom-5 right-2">22/05/2024</p>
+										</div>
+									</div>
+									<div class="w-full pb-3 ">
+										<p class="text-sm leading-tight text-center">
+											<span
+												class="mr-1 text-lg italic font-bold leading-none text-center text-custom-white"
+												>"</span
+											>
+											Lorem ipsum dolor sit amet consectetur adipisicing
+											<span
+												class="ml-1 text-lg italic font-bold leading-none text-custom-white"
+												>"</span
+											>
+										</p>
+									</div>
+								</div>
+							<!--End_card-slider_device-->
+							<!--Start_card-slider_device-->
+
+							<div class="flex flex-col items-center w-full p-4 mx-2 font-light border rounded-lg shadow-md swiper-slide  max-w-xs sm:w-[500px] bg-custom-green border-custom-brown text-custom-white">
+									<div class="flex w-full h-full ">
+										<div class="text-4xl ">
+											<span>
+												<i class="bi bi-person-circle"></i>
+											</span>
+										</div>
+										<div
+											class="flex items-center justify-between w-full ">
+											<div class="pl-4">
+												<div class="flex flex-col pt-2">
+													<h4 class="text-sm font-bold text-gray-600 uppercase ">
+														test--4.
+													</h4>
+													<div class="flex-row items-center justify-center mb-5">
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+													</div>
+												</div>
+											</div>
+											<p class="relative text-xs bottom-5 right-2">22/05/2024</p>
+										</div>
+									</div>
+									<div class="w-full pb-3 ">
+										<p class="text-sm leading-tight text-center">
+											<span
+												class="mr-1 text-lg italic font-bold leading-none text-center text-custom-white"
+												>"</span
+											>
+											Lorem ipsum dolor sit amet consectetur adipisicing
+											<span
+												class="ml-1 text-lg italic font-bold leading-none text-custom-white"
+												>"</span
+											>
+										</p>
+									</div>
+								</div>
+							<!--End_card-slider_device-->
+							<!--Start_card-slider_device-->
+							<div class="flex flex-col items-center w-full p-4 mx-2 font-light border rounded-lg shadow-md swiper-slide  max-w-xs sm:w-[500px]  bg-custom-green border-custom-brown text-custom-white">
+									<div class="flex w-full h-full ">
+										<div class="text-4xl ">
+											<span>
+												<i class="bi bi-person-circle"></i>
+											</span>
+										</div>
+										<div
+											class="flex items-center justify-between w-full ">
+											<div class="pl-4">
+												<div class="flex flex-col pt-2">
+													<h4 class="text-sm font-bold text-gray-600 uppercase ">
+														test--5.
+													</h4>
+													<div class="flex-row items-center justify-center mb-5">
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+														<span class="w-10 h-10">
+															<i class="text-yellow-400 bi bi-star-fill"></i>
+														</span>
+													</div>
+												</div>
+											</div>
+											<p class="relative text-xs bottom-5 right-2">22/05/2024</p>
+										</div>
+									</div>
+									<div class="w-full pb-3 ">
+										<p class="text-sm leading-tight text-center">
+											<span
+												class="mr-1 text-lg italic font-bold leading-none text-center text-custom-white"
+												>"</span
+											>
+											Lorem ipsum dolor sit amet consectetur adipisicing
+											<span
+												class="ml-1 text-lg italic font-bold leading-none text-custom-white"
+												>"</span
+											>
+										</p>
+									</div>
+								</div>
+							<!--End_card-slider_device-->			
+						</div>
+						<!--navigation bouttons-->
+					<div class=" swiper-button-next"></div>
+					<div class=" swiper-button-prev"></div> 
+						<!--pagination-->
+						<div class="swiper-pagination"></div>
+					</div>
+				</div> #}
+				<!-- end -slider__device -->
+			</section>
 		</main>
 
 		{# Footer commun à toutes les pages - fixe en bas #}
@@ -436,7 +1153,7 @@
 			<p>&copy; 2024 Zoo Arcadia</p>
 		</footer>
 		<!-- Swiper JS -->
-
+		{# import swiper via cdn  #}
 		<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	</body>
 </html>

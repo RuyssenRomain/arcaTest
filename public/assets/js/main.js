@@ -14,15 +14,17 @@ import './anime/swipper_device.js';
 // Autres scripts
 import './app.js';
 import './anime/burger.js';
+import { navEffectScroll } from "/assets/js/anime/navEffectScroll.js";
 
 
 // Autres scripts globaux ou spécifiques peuvent être ajoutés ici si nécessaire
 console.log("Main.js chargé avec succès !");
 
 document.addEventListener("DOMContentLoaded", () => {
+        navEffectScroll()
         afficheBurgerMenu();
-         ShowSubmenuHabitats(); 
-         ShowNavMenuHabitats(); 
+        ShowSubmenuHabitats(); 
+        ShowNavMenuHabitats(); 
     });
 
     function afficheBurgerMenu() {

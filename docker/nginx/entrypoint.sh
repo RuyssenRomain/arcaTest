@@ -38,6 +38,5 @@ fi
 sed -e "/# Configuration supplémentaire sera insérée ici/r /dev/stdin" -e "/# Configuration supplémentaire sera insérée ici/d" /etc/nginx/templates/default.conf.template <<EOF > /etc/nginx/conf.d/default.conf
 $EXTRA_CONFIG
 EOF
-
 # Exécuter la commande CMD passée au conteneur
 exec "$@"
